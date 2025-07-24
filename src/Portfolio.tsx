@@ -451,10 +451,10 @@ const Portfolio = () => {
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <GlowCard>
-              <a href="mailto:aniruddhahdkedlaya@gmail.com" className="block p-6 group">
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=aniruddhahdkedlaya@gmail.com&su=AI/ML Project Discussion" target="_blank" rel="noopener noreferrer" className="block p-6 group">
                 <Mail className="w-12 h-12 text-blue-400 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
                 <h3 className="text-lg font-semibold mb-2">Email</h3>
-                <p className="text-gray-400 group-hover:text-blue-400 transition-colors duration-300">aniruddhahdkedlaya@gmail.com</p>
+                <p className="text-gray-400 group-hover:text-blue-400 transition-colors duration-300 text-sm break-words">aniruddhahdkedlaya@gmail.com</p>
               </a>
             </GlowCard>
             <GlowCard>
