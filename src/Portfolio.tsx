@@ -167,7 +167,7 @@ const Portfolio = () => {
             {/* Download Resume Buttons */}
             <div className="flex justify-center space-x-4 mb-8">
               <a 
-                href="/Aniruddha_HD_Resume.pdf" 
+                href="/Aniruddha-portfolio/Aniruddha_HD_Resume.pdf" 
                 download="Aniruddha_HD_Resume.pdf"
                 className="inline-flex items-center space-x-3 px-6 py-4 bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-500 hover:to-blue-500 rounded-lg border border-green-500 hover:border-green-400 transition-all duration-300 group transform hover:scale-105"
               >
@@ -175,7 +175,7 @@ const Portfolio = () => {
                 <span className="text-lg font-semibold">Download PDF</span>
               </a>
               <a 
-                href="/resume.html" 
+                href="/Aniruddha-portfolio/resume.html" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center space-x-3 px-6 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 rounded-lg border border-blue-500 hover:border-blue-400 transition-all duration-300 group transform hover:scale-105"
