@@ -36,7 +36,7 @@ This portfolio is automatically deployed using GitHub Actions CI/CD pipeline.
 1. **Push to main branch** triggers automatic deployment
 2. **GitHub Actions** builds the project and runs tests
 3. **Deploy to GitHub Pages** makes the site live
-4. **Live at**: https://aniruddhahd.github.io/aniruddha-portfolio
+4. **Live at**: https://ani-2003-hd.github.io/Aniruddha-portfolio
 
 ### Local Development
 
