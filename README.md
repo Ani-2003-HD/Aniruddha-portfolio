@@ -1,46 +1,66 @@
-# Getting Started with Create React App
+# Aniruddha HD - AI/ML Engineer Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive portfolio website showcasing my expertise in AI/ML Engineering, Deep Learning, and MLOps.
 
-## Available Scripts
+## 🚀 Features
 
-In the project directory, you can run:
+- **Modern Design**: Clean, professional design with dark theme
+- **Responsive**: Optimized for all devices and screen sizes
+- **Interactive**: Smooth scrolling navigation and hover effects
+- **Performance**: Fast loading with optimized assets
+- **SEO Optimized**: Meta tags and structured content
 
-### `npm start`
+## 🛠️ Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **Frontend**: React 18, TypeScript
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
+- **Deployment**: GitHub Pages with CI/CD
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 📋 Sections
 
-### `npm test`
+- **Hero**: Introduction and contact links
+- **About**: Personal background and expertise
+- **Experience**: Professional experience and achievements
+- **Projects**: Featured AI/ML projects with technologies used
+- **Skills**: Technical skills organized by category
+- **Education**: Academic background and certifications
+- **Contact**: Multiple ways to get in touch
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🚀 Deployment
 
-### `npm run build`
+This portfolio is automatically deployed using GitHub Actions CI/CD pipeline.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### How it works:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **Push to main branch** triggers automatic deployment
+2. **GitHub Actions** builds the project and runs tests
+3. **Deploy to GitHub Pages** makes the site live
+4. **Live at**: https://aniruddhahd.github.io/aniruddha-portfolio
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Local Development
 
-### `npm run eject`
+```bash
+# Install dependencies
+npm install
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# Start development server
+npm start
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Build for production
+npm run build
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# Run tests
+npm test
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 📱 Contact
 
-## Learn More
+- **Email**: aniruddhahdkedlaya@gmail.com
+- **LinkedIn**: [Aniruddha HD](https://linkedin.com/in/Aniruddha-HD)
+- **GitHub**: [Ani-2003-HD](https://github.com/Ani-2003-HD)
+- **Phone**: +91 9980645715
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 📄 License
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This project is open source and available under the [MIT License](LICENSE).
