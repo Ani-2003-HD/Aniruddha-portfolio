@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, Phone, MapPin, Code, Brain, Database, Cloud, Award, ExternalLink, ChevronDown, Terminal, Zap, Layers, GitBranch } from 'lucide-react';
+import { Github, Linkedin, Mail, Phone, MapPin, Code, Brain, Database, Cloud, ExternalLink, ChevronDown, Terminal, Zap, Layers, GitBranch, Download, GraduationCap, BookOpen } from 'lucide-react';
 
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState('hero');
@@ -163,6 +163,27 @@ const Portfolio = () => {
                 </div>
               </a>
             </div>
+            
+            {/* Download Resume Buttons */}
+            <div className="flex justify-center space-x-4 mb-8">
+              <a 
+                href="/Aniruddha_HD_Resume.pdf" 
+                download="Aniruddha_HD_Resume.pdf"
+                className="inline-flex items-center space-x-3 px-6 py-4 bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-500 hover:to-blue-500 rounded-lg border border-green-500 hover:border-green-400 transition-all duration-300 group transform hover:scale-105"
+              >
+                <Download className="w-6 h-6 group-hover:animate-bounce" />
+                <span className="text-lg font-semibold">Download PDF</span>
+              </a>
+              <a 
+                href="/resume.html" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-3 px-6 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 rounded-lg border border-blue-500 hover:border-blue-400 transition-all duration-300 group transform hover:scale-105"
+              >
+                <Download className="w-6 h-6 group-hover:animate-bounce" />
+                <span className="text-lg font-semibold">View Online</span>
+              </a>
+            </div>
           </div>
         </div>
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
@@ -186,9 +207,31 @@ const Portfolio = () => {
                 With hands-on experience in deploying scalable deep learning models and implementing robust MLOps workflows, 
                 I bridge the gap between cutting-edge AI research and production-ready solutions.
               </p>
-              <div className="flex items-center space-x-4 text-gray-400">
+              <div className="flex items-center space-x-4 text-gray-400 mb-6">
                 <MapPin className="w-5 h-5" />
                 <span>Shivamogga, Karnataka</span>
+              </div>
+              
+              {/* Resume Download in About Section */}
+              <div className="flex items-center space-x-4">
+                <a 
+                  href="/Aniruddha_HD_Resume.pdf" 
+                  download="Aniruddha_HD_Resume.pdf"
+                  className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-500 hover:to-blue-500 rounded-lg border border-green-500 hover:border-green-400 transition-all duration-300 group transform hover:scale-105"
+                >
+                  <Download className="w-4 h-4 group-hover:animate-bounce" />
+                  <span className="font-semibold text-sm">PDF</span>
+                </a>
+                <a 
+                  href="/resume.html" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 rounded-lg border border-blue-500 hover:border-blue-400 transition-all duration-300 group transform hover:scale-105"
+                >
+                  <Download className="w-4 h-4 group-hover:animate-bounce" />
+                  <span className="font-semibold text-sm">Online</span>
+                </a>
+                <span className="text-sm text-gray-500">Professional Format</span>
               </div>
             </div>
             <div className="space-y-6">
@@ -353,148 +396,43 @@ const Portfolio = () => {
       </section>
 
       {/* Education & Certifications */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-            Education & Certifications
+      <section id="education" className="py-20 relative">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-12 text-white">
+            Education
           </h2>
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <GlowCard>
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-white mb-4">Education</h3>
-                <div className="space-y-6">
-                  <div>
-                    <h4 className="text-lg font-semibold text-blue-400">Bachelor of Engineering</h4>
-                    <p className="text-gray-300">Artificial Intelligence and Machine Learning</p>
-                    <p className="text-gray-400">Jyothy Institute of Technology, Bengaluru</p>
-                    <p className="text-sm text-gray-500">2021 – Present</p>
+          <div className="grid md:grid-cols-1 gap-8 max-w-4xl mx-auto">
+            <GlowCard className="p-8">
+              <div className="flex items-start space-x-6">
+                <div className="flex-shrink-0">
+                  <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                    <GraduationCap className="w-8 h-8 text-white" />
                   </div>
-                  <div>
-                    <h4 className="text-lg font-semibold text-blue-400">Pre-University Course</h4>
-                    <p className="text-gray-300">Computer Science</p>
-                    <p className="text-gray-400">Vidyabharathi PU College, Shivamogga</p>
-                    <p className="text-sm text-gray-500">2019 – 2021</p>
-                  </div>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-2xl font-bold text-white mb-2">
+                    Bachelor of Engineering in Artificial Intelligence and Machine Learning
+                  </h3>
+                  <p className="text-xl text-blue-400 mb-2">Jyothy Institute of Technology, Bengaluru</p>
+                  <p className="text-gray-400 mb-2">2021 - 2025</p>
+                  <p className="text-green-400 font-semibold">CGPA: 7.74/10</p>
                 </div>
               </div>
             </GlowCard>
-            <GlowCard>
-              <div className="p-6">
-                <div className="flex items-center space-x-3 mb-6">
-                  <Github className="w-8 h-8 text-purple-400" />
-                  <h3 className="text-2xl font-bold text-white">GitHub Portfolio</h3>
-                </div>
-                <p className="text-gray-300 mb-4">
-                  Explore my complete collection of AI/ML projects, contributions, and open-source work
-                </p>
-                <a href="https://github.com/Ani-2003-HD" target="_blank" rel="noopener noreferrer" className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg hover:from-purple-500 hover:to-blue-500 transition-all duration-300 group">
-                  <Github className="w-5 h-5" />
-                  <span className="font-semibold">Visit GitHub Profile</span>
-                  <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                </a>
-              </div>
-            </GlowCard>
-          </div>
-
-          {/* Detailed Certifications */}
-          <div className="space-y-8">
-            {/* Deep Learning Specialization */}
-            <GlowCard>
-              <div className="p-8">
-                <div className="flex items-start justify-between mb-6">
-                  <div className="flex items-center space-x-4">
-                    <Award className="w-10 h-10 text-yellow-400" />
-                    <div>
-                      <h3 className="text-2xl font-bold text-yellow-400">Deep Learning Specialization</h3>
-                      <p className="text-gray-300">DeepLearning.AI by Andrew Ng</p>
-                    </div>
+            
+            <GlowCard className="p-8">
+              <div className="flex items-start space-x-6">
+                <div className="flex-shrink-0">
+                  <div className="w-16 h-16 bg-gradient-to-r from-green-600 to-blue-600 rounded-lg flex items-center justify-center">
+                    <BookOpen className="w-8 h-8 text-white" />
                   </div>
-                  <a href="https://coursera.org/verify/specialization/QPXD6BKQXNKP" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 px-4 py-2 bg-yellow-600/20 text-yellow-400 rounded-lg border border-yellow-600/30 hover:bg-yellow-600/30 transition-all duration-300">
-                    <span className="text-sm font-semibold">Verify Certificate</span>
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
                 </div>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {[
-                    'Neural Networks and Deep Learning',
-                    'Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization',
-                    'Structuring Machine Learning Projects',
-                    'Convolutional Neural Networks',
-                    'Sequence Models'
-                  ].map((course, index) => (
-                    <div key={index} className="p-3 bg-gray-800/50 rounded-lg border border-gray-700">
-                      <div className="flex items-center space-x-2">
-                        <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                        <span className="text-sm text-gray-300">{course}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </GlowCard>
-
-            {/* Machine Learning Specialization */}
-            <GlowCard>
-              <div className="p-8">
-                <div className="flex items-start justify-between mb-6">
-                  <div className="flex items-center space-x-4">
-                    <Award className="w-10 h-10 text-green-400" />
-                    <div>
-                      <h3 className="text-2xl font-bold text-green-400">Machine Learning Specialization</h3>
-                      <p className="text-gray-300">Stanford University & DeepLearning.AI</p>
-                    </div>
-                  </div>
-                  <a href="https://coursera.org/verify/specialization/ZQKA433GBLPY" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 px-4 py-2 bg-green-600/20 text-green-400 rounded-lg border border-green-600/30 hover:bg-green-600/30 transition-all duration-300">
-                    <span className="text-sm font-semibold">Verify Certificate</span>
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
-                </div>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {[
-                    'Supervised Machine Learning: Regression and Classification',
-                    'Advanced Learning Algorithms',
-                    'Unsupervised Learning, Recommenders, Reinforcement Learning'
-                  ].map((course, index) => (
-                    <div key={index} className="p-3 bg-gray-800/50 rounded-lg border border-gray-700">
-                      <div className="flex items-center space-x-2">
-                        <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                        <span className="text-sm text-gray-300">{course}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </GlowCard>
-
-            {/* Mathematics for Machine Learning Specialization */}
-            <GlowCard>
-              <div className="p-8">
-                <div className="flex items-start justify-between mb-6">
-                  <div className="flex items-center space-x-4">
-                    <Award className="w-10 h-10 text-purple-400" />
-                    <div>
-                      <h3 className="text-2xl font-bold text-purple-400">Mathematics for Machine Learning & Data Science Specialization</h3>
-                      <p className="text-gray-300">DeepLearning.AI by Luis Serrano</p>
-                    </div>
-                  </div>
-                  <a href="https://coursera.org/verify/specialization/UOMEK7K6OE2T" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 px-4 py-2 bg-purple-600/20 text-purple-400 rounded-lg border border-purple-600/30 hover:bg-purple-600/30 transition-all duration-300">
-                    <span className="text-sm font-semibold">Verify Certificate</span>
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
-                </div>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {[
-                    'Linear Algebra for Machine Learning and Data Science',
-                    'Calculus for Machine Learning and Data Science',
-                    'Probability & Statistics for Machine Learning & Data Science'
-                  ].map((course, index) => (
-                    <div key={index} className="p-3 bg-gray-800/50 rounded-lg border border-gray-700">
-                      <div className="flex items-center space-x-2">
-                        <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
-                        <span className="text-sm text-gray-300">{course}</span>
-                      </div>
-                    </div>
-                  ))}
+                <div className="flex-1">
+                  <h3 className="text-2xl font-bold text-white mb-2">
+                    Pre-University Course in Computer Science
+                  </h3>
+                  <p className="text-xl text-blue-400 mb-2">Vidyabharathi PU College, Shivamogga</p>
+                  <p className="text-gray-400">2019 - 2021</p>
                 </div>
               </div>
             </GlowCard>
@@ -511,7 +449,7 @@ const Portfolio = () => {
           <p className="text-xl text-gray-300 mb-12">
             Ready to discuss your next AI project or explore collaboration opportunities?
           </p>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <GlowCard>
               <a href="mailto:aniruddhahdkedlaya@gmail.com" className="block p-6 group">
                 <Mail className="w-12 h-12 text-blue-400 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
@@ -531,6 +469,13 @@ const Portfolio = () => {
                 <Linkedin className="w-12 h-12 text-purple-400 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
                 <h3 className="text-lg font-semibold mb-2">LinkedIn</h3>
                 <p className="text-gray-400 group-hover:text-purple-400 transition-colors duration-300">Connect with me</p>
+              </a>
+            </GlowCard>
+            <GlowCard>
+              <a href="/Aniruddha_HD_Resume.pdf" download="Aniruddha_HD_Resume.pdf" className="block p-6 group">
+                <Download className="w-12 h-12 text-orange-400 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
+                <h3 className="text-lg font-semibold mb-2">Resume</h3>
+                <p className="text-gray-400 group-hover:text-orange-400 transition-colors duration-300">Download PDF</p>
               </a>
             </GlowCard>
           </div>
