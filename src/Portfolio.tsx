@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, Phone, MapPin, Code, Brain, Database, Cloud, ExternalLink, ChevronDown, Terminal, Zap, Layers, GitBranch, Download, GraduationCap, BookOpen } from 'lucide-react';
+import { Github, Linkedin, Mail, Phone, MapPin, Code, Brain, Database, Cloud, ExternalLink, ChevronDown, Terminal, Zap, Layers, GitBranch, Download, GraduationCap, BookOpen, Award } from 'lucide-react';
 
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState('hero');
@@ -114,7 +114,7 @@ const Portfolio = () => {
               Aniruddha HD
             </div>
             <div className="hidden md:flex space-x-8">
-              {['About', 'Experience', 'Projects', 'Skills', 'Contact'].map((item) => (
+              {['About', 'Experience', 'Projects', 'Skills', 'Certifications', 'Contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
@@ -395,7 +395,7 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Education & Certifications */}
+      {/* Education */}
       <section id="education" className="py-20 relative">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
@@ -440,6 +440,120 @@ const Portfolio = () => {
         </div>
       </section>
 
+      {/* Certifications */}
+      <section id="certifications" className="py-20 bg-gray-900/30">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-12 text-white">
+            Certifications
+          </h2>
+          <div className="max-w-6xl mx-auto">
+            {/* Detailed Certifications */}
+            <div className="space-y-8">
+              {/* Deep Learning Specialization */}
+              <GlowCard>
+                <div className="p-8">
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="flex items-center space-x-4">
+                      <Award className="w-10 h-10 text-yellow-400" />
+                      <div>
+                        <h3 className="text-2xl font-bold text-yellow-400">Deep Learning Specialization</h3>
+                        <p className="text-gray-300">DeepLearning.AI by Andrew Ng</p>
+                      </div>
+                    </div>
+                    <a href="https://coursera.org/verify/specialization/QPXD6BKQXNKP" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 px-4 py-2 bg-yellow-600/20 text-yellow-400 rounded-lg border border-yellow-600/30 hover:bg-yellow-600/30 transition-all duration-300">
+                      <span className="text-sm font-semibold">Verify Certificate</span>
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  </div>
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {[
+                      'Neural Networks and Deep Learning',
+                      'Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization',
+                      'Structuring Machine Learning Projects',
+                      'Convolutional Neural Networks',
+                      'Sequence Models'
+                    ].map((course, index) => (
+                      <div key={index} className="p-3 bg-gray-800/50 rounded-lg border border-gray-700">
+                        <div className="flex items-center space-x-2">
+                          <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                          <span className="text-sm text-gray-300">{course}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </GlowCard>
+
+              {/* Machine Learning Specialization */}
+              <GlowCard>
+                <div className="p-8">
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="flex items-center space-x-4">
+                      <Award className="w-10 h-10 text-green-400" />
+                      <div>
+                        <h3 className="text-2xl font-bold text-green-400">Machine Learning Specialization</h3>
+                        <p className="text-gray-300">Stanford University & DeepLearning.AI</p>
+                      </div>
+                    </div>
+                    <a href="https://coursera.org/verify/specialization/ZQKA433GBLPY" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 px-4 py-2 bg-green-600/20 text-green-400 rounded-lg border border-green-600/30 hover:bg-green-600/30 transition-all duration-300">
+                      <span className="text-sm font-semibold">Verify Certificate</span>
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  </div>
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {[
+                      'Supervised Machine Learning: Regression and Classification',
+                      'Advanced Learning Algorithms',
+                      'Unsupervised Learning, Recommenders, Reinforcement Learning'
+                    ].map((course, index) => (
+                      <div key={index} className="p-3 bg-gray-800/50 rounded-lg border border-gray-700">
+                        <div className="flex items-center space-x-2">
+                          <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                          <span className="text-sm text-gray-300">{course}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </GlowCard>
+
+              {/* Mathematics for Machine Learning Specialization */}
+              <GlowCard>
+                <div className="p-8">
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="flex items-center space-x-4">
+                      <Award className="w-10 h-10 text-purple-400" />
+                      <div>
+                        <h3 className="text-2xl font-bold text-purple-400">Mathematics for Machine Learning & Data Science Specialization</h3>
+                        <p className="text-gray-300">DeepLearning.AI by Lois Serrano</p>
+                      </div>
+                    </div>
+                    <a href="https://coursera.org/verify/specialization/UOMEK7K6OE2T" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 px-4 py-2 bg-purple-600/20 text-purple-400 rounded-lg border border-purple-600/30 hover:bg-purple-600/30 transition-all duration-300">
+                      <span className="text-sm font-semibold">Verify Certificate</span>
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  </div>
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {[
+                      'Linear Algebra for Machine Learning and Data Science',
+                      'Calculus for Machine Learning and Data Science',
+                      'Probability & Statistics for Machine Learning & Data Science'
+                    ].map((course, index) => (
+                      <div key={index} className="p-3 bg-gray-800/50 rounded-lg border border-gray-700">
+                        <div className="flex items-center space-x-2">
+                          <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                          <span className="text-sm text-gray-300">{course}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </GlowCard>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-gray-900/50">
         <div className="max-w-4xl mx-auto px-6 text-center">
@@ -449,7 +563,7 @@ const Portfolio = () => {
           <p className="text-xl text-gray-300 mb-12">
             Ready to discuss your next AI project or explore collaboration opportunities?
           </p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto">
             <GlowCard>
               <a href="https://mail.google.com/mail/?view=cm&fs=1&to=aniruddhahdkedlaya@gmail.com&su=AI/ML Project Discussion" target="_blank" rel="noopener noreferrer" className="block p-6 group">
                 <Mail className="w-12 h-12 text-blue-400 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
@@ -469,13 +583,6 @@ const Portfolio = () => {
                 <Linkedin className="w-12 h-12 text-purple-400 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
                 <h3 className="text-lg font-semibold mb-2">LinkedIn</h3>
                 <p className="text-gray-400 group-hover:text-purple-400 transition-colors duration-300">Connect with me</p>
-              </a>
-            </GlowCard>
-            <GlowCard>
-              <a href="/Aniruddha-portfolio/Aniruddha_HD_Resume.pdf" download="Aniruddha_HD_Resume.pdf" className="block p-6 group">
-                <Download className="w-12 h-12 text-orange-400 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
-                <h3 className="text-lg font-semibold mb-2">Resume</h3>
-                <p className="text-gray-400 group-hover:text-orange-400 transition-colors duration-300">Download PDF</p>
               </a>
             </GlowCard>
           </div>
