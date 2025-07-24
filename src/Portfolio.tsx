@@ -214,16 +214,16 @@ const Portfolio = () => {
               
               {/* Resume Download in About Section */}
               <div className="flex items-center space-x-4">
-                <a 
-                  href="/Aniruddha_HD_Resume.pdf" 
+                                <a
+                  href="./Aniruddha_HD_Resume.pdf"
                   download="Aniruddha_HD_Resume.pdf"
                   className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-500 hover:to-blue-500 rounded-lg border border-green-500 hover:border-green-400 transition-all duration-300 group transform hover:scale-105"
                 >
                   <Download className="w-4 h-4 group-hover:animate-bounce" />
                   <span className="font-semibold text-sm">PDF</span>
                 </a>
-                <a 
-                  href="/resume.html" 
+                <a
+                  href="./resume.html"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 rounded-lg border border-blue-500 hover:border-blue-400 transition-all duration-300 group transform hover:scale-105"
@@ -472,7 +472,7 @@ const Portfolio = () => {
               </a>
             </GlowCard>
             <GlowCard>
-              <a href="/Aniruddha_HD_Resume.pdf" download="Aniruddha_HD_Resume.pdf" className="block p-6 group">
+              <a href="./Aniruddha_HD_Resume.pdf" download="Aniruddha_HD_Resume.pdf" className="block p-6 group">
                 <Download className="w-12 h-12 text-orange-400 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
                 <h3 className="text-lg font-semibold mb-2">Resume</h3>
                 <p className="text-gray-400 group-hover:text-orange-400 transition-colors duration-300">Download PDF</p>
