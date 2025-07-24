@@ -13,154 +13,127 @@
         
         body {
             font-family: 'Arial', 'Helvetica', sans-serif;
-            line-height: 1.2;
+            line-height: 1.15;
             color: #000;
             background: white;
-            font-size: 11px;
+            font-size: 10px;
         }
         
         .container {
             max-width: 8.5in;
             margin: 0 auto;
-            padding: 0.5in;
+            padding: 0.4in;
         }
         
         .header {
             text-align: center;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             border-bottom: 2px solid #000;
-            padding-bottom: 10px;
+            padding-bottom: 8px;
         }
         
         .name {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: bold;
             color: #000;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
             text-transform: uppercase;
         }
         
         .title {
-            font-size: 14px;
+            font-size: 13px;
             color: #333;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             font-weight: bold;
         }
         
         .contact-info {
-            font-size: 11px;
-            color: #333;
-            line-height: 1.4;
-        }
-        
-        .section {
-            margin-bottom: 15px;
-        }
-        
-        .section-title {
-            font-size: 14px;
-            font-weight: bold;
-            color: #000;
-            text-transform: uppercase;
-            border-bottom: 1px solid #000;
-            padding-bottom: 3px;
-            margin-bottom: 8px;
-        }
-        
-        .experience-item, .project-item, .education-item {
-            margin-bottom: 12px;
-        }
-        
-        .job-title, .project-title, .degree {
-            font-weight: bold;
-            font-size: 12px;
-            color: #000;
-        }
-        
-        .company, .project-tech, .institution {
-            font-weight: bold;
-            font-size: 11px;
-            color: #333;
-        }
-        
-        .duration {
-            font-size: 11px;
-            color: #333;
-            margin-bottom: 5px;
-        }
-        
-        .achievements, .project-highlights {
-            list-style-type: disc;
-            padding-left: 20px;
-            margin-top: 5px;
-        }
-        
-        .achievements li, .project-highlights li {
-            margin-bottom: 3px;
-            font-size: 11px;
-            line-height: 1.3;
-        }
-        
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-        }
-        
-        .skill-category {
-            margin-bottom: 8px;
-        }
-        
-        .skill-category h4 {
-            font-weight: bold;
-            font-size: 11px;
-            color: #000;
-            margin-bottom: 3px;
-            text-transform: uppercase;
-        }
-        
-        .skill-list {
             font-size: 10px;
             color: #333;
             line-height: 1.3;
         }
         
-        .certifications {
-            margin-top: 5px;
+        .section {
+            margin-bottom: 12px;
         }
         
-        .certification {
-            margin-bottom: 5px;
-            font-size: 11px;
-        }
-        
-        .certification-name {
+        .section-title {
+            font-size: 13px;
             font-weight: bold;
+            color: #000;
+            text-transform: uppercase;
+            border-bottom: 1px solid #000;
+            padding-bottom: 2px;
+            margin-bottom: 6px;
+        }
+        
+        .experience-item, .project-item, .education-item {
+            margin-bottom: 10px;
+        }
+        
+        .job-title, .project-title, .degree {
+            font-weight: bold;
+            font-size: 11px;
             color: #000;
         }
         
-        .certification-issuer {
+        .company, .project-tech, .institution {
+            font-weight: bold;
+            font-size: 10px;
             color: #333;
         }
         
-        .languages-interests {
-            font-size: 11px;
-            line-height: 1.4;
+        .duration {
+            font-size: 10px;
+            color: #333;
+            margin-bottom: 4px;
         }
         
-        .languages-interests strong {
+        .achievements, .project-highlights {
+            list-style-type: disc;
+            padding-left: 18px;
+            margin-top: 4px;
+        }
+        
+        .achievements li, .project-highlights li {
+            margin-bottom: 2px;
+            font-size: 10px;
+            line-height: 1.2;
+        }
+        
+        .summary {
+            font-size: 10px;
+            line-height: 1.3;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+        
+        .skill-category h4 {
+            font-size: 10px;
+            font-weight: bold;
             color: #000;
+            margin-bottom: 2px;
+        }
+        
+        .skill-list {
+            font-size: 9px;
+            color: #333;
+            line-height: 1.2;
         }
         
         .keywords {
             display: none;
         }
         
-        .summary {
-            font-size: 11px;
-            line-height: 1.4;
-            color: #333;
-            margin-bottom: 10px;
+        @page {
+            size: letter;
+            margin: 0.4in;
         }
         
         @media print {
@@ -168,22 +141,8 @@
                 font-size: 10px;
             }
             .container {
-                padding: 0.4in;
+                padding: 0.3in;
             }
-            .name {
-                font-size: 22px;
-            }
-            .title {
-                font-size: 13px;
-            }
-            .section-title {
-                font-size: 13px;
-            }
-        }
-        
-        @page {
-            size: letter;
-            margin: 0.5in;
         }
     </style>
 </head>
@@ -191,154 +150,154 @@
     <div class="container">
         <!-- Hidden keywords for ATS -->
         <div class="keywords">
-            AI Engineer, Machine Learning Engineer, Deep Learning Engineer, Data Scientist, Python Developer, 
-            TensorFlow, PyTorch, Computer Vision, Natural Language Processing, MLOps, AWS, Docker, 
-            Kubernetes, FastAPI, React, JavaScript, TypeScript, NumPy, pandas, Scikit-Learn, OpenCV, 
-            YOLO, CNN, Neural Networks, Model Deployment, Cloud Computing, Git, Jupyter, Streamlit, 
-            Flask, REST API, Microservices, Containerization, Model Training, Data Preprocessing, 
-            Feature Engineering, Model Evaluation, Hyperparameter Tuning, Cross-Validation, 
-            Statistical Analysis, Data Visualization, ETL, Database Management, Linux, Agile, 
-            Scrum, Project Management, Team Collaboration, Problem Solving, Critical Thinking, 
-            Communication Skills, Leadership, Mentoring, Research, Innovation, Optimization, 
-            Performance Tuning, Scalability, Production Systems, Monitoring, Logging, Testing, 
-            Documentation, Version Control, CI/CD, DevOps, Infrastructure, Security, Compliance, 
-            Quality Assurance, User Experience, Interface Design, Responsive Design, Mobile Development, 
-            Web Development, Full Stack Development, Backend Development, Frontend Development, 
-            API Development, Database Design, System Architecture, Software Engineering, 
-            Object-Oriented Programming, Functional Programming, Algorithm Design, Data Structures, 
-            Time Complexity, Space Complexity, Optimization Algorithms, Machine Learning Algorithms, 
-            Supervised Learning, Unsupervised Learning, Reinforcement Learning, Deep Learning, 
-            Neural Networks, Convolutional Neural Networks, Recurrent Neural Networks, 
-            Long Short-Term Memory, Transformers, BERT, GPT, Natural Language Processing, 
-            Computer Vision, Image Processing, Object Detection, Image Classification, 
-            Semantic Segmentation, Instance Segmentation, Face Recognition, Optical Character Recognition, 
-            Speech Recognition, Text-to-Speech, Machine Translation, Sentiment Analysis, 
-            Named Entity Recognition, Part-of-Speech Tagging, Dependency Parsing, 
-            Question Answering, Text Summarization, Language Modeling, Word Embeddings, 
-            Feature Extraction, Dimensionality Reduction, Principal Component Analysis, 
-            Clustering, K-Means, Hierarchical Clustering, Association Rules, 
-            Recommendation Systems, Collaborative Filtering, Content-Based Filtering, 
-            Hybrid Systems, A/B Testing, Statistical Significance, Hypothesis Testing, 
-            Confidence Intervals, P-Values, Correlation Analysis, Regression Analysis, 
-            Linear Regression, Logistic Regression, Ridge Regression, Lasso Regression, 
-            Elastic Net, Support Vector Machines, Random Forests, Gradient Boosting, 
-            XGBoost, LightGBM, AdaBoost, Naive Bayes, K-Nearest Neighbors, 
-            Decision Trees, Ensemble Methods, Bagging, Boosting, Stacking, 
-            Cross-Validation, Grid Search, Random Search, Bayesian Optimization, 
-            Hyperparameter Tuning, Model Selection, Feature Selection, 
-            Feature Engineering, Data Cleaning, Data Validation, Data Quality, 
-            Data Governance, Data Privacy, Data Security, GDPR, HIPAA, 
-            Compliance, Ethics, Bias, Fairness, Explainability, Interpretability, 
-            Model Interpretability, SHAP, LIME, Feature Importance, 
-            Model Monitoring, Drift Detection, Model Retraining, 
-            Continuous Integration, Continuous Deployment, Continuous Training, 
-            Model Versioning, Experiment Tracking, MLflow, Weights & Biases, 
-            TensorBoard, Neptune, Comet ML, Kubeflow, Airflow, Luigi, 
-            Prefect, Dagster, Apache Spark, Hadoop, Hive, Pig, 
-            MapReduce, Distributed Computing, Parallel Processing, 
-            GPU Computing, CUDA, TensorRT, ONNX, Model Optimization, 
-            Quantization, Pruning, Knowledge Distillation, 
-            Transfer Learning, Fine-tuning, Pre-trained Models, 
-            BERT, GPT, T5, RoBERTa, DistilBERT, ALBERT, 
-            ResNet, VGG, Inception, EfficientNet, MobileNet, 
-            YOLO, SSD, Faster R-CNN, Mask R-CNN, 
-            U-Net, SegNet, DeepLab, PSPNet, 
-            LSTM, GRU, BiLSTM, Transformer, 
-            Attention Mechanism, Self-Attention, Multi-Head Attention, 
-            Positional Encoding, Tokenization, Subword Tokenization, 
-            Byte Pair Encoding, WordPiece, SentencePiece, 
-            Data Augmentation, Image Augmentation, Text Augmentation, 
-            Synthetic Data, GANs, Variational Autoencoders, 
-            Reinforcement Learning, Q-Learning, Policy Gradient, 
-            Actor-Critic, Deep Q-Network, Proximal Policy Optimization, 
-            Trust Region Policy Optimization, Soft Actor-Critic, 
-            Multi-Agent Systems, Game Theory, Nash Equilibrium, 
-            Monte Carlo Methods, Temporal Difference Learning, 
-            Value Function Approximation, Policy Function Approximation, 
-            Exploration vs Exploitation, Epsilon-Greedy, UCB, 
-            Thompson Sampling, Bayesian Optimization, 
-            Gaussian Processes, Acquisition Functions, 
-            Expected Improvement, Probability of Improvement, 
-            Upper Confidence Bound, Entropy Search, 
-            Knowledge Gradient, Multi-Objective Optimization, 
-            Pareto Optimality, Multi-Criteria Decision Making, 
-            Constraint Optimization, Lagrangian Methods, 
-            Penalty Methods, Barrier Methods, 
-            Interior Point Methods, Sequential Quadratic Programming, 
-            Genetic Algorithms, Evolutionary Strategies, 
-            Particle Swarm Optimization, Ant Colony Optimization, 
-            Simulated Annealing, Tabu Search, 
-            Local Search, Hill Climbing, Gradient Descent, 
-            Stochastic Gradient Descent, Adam, RMSprop, AdaGrad, 
-            Momentum, Nesterov Momentum, Learning Rate Scheduling, 
-            Cyclical Learning Rates, One Cycle Policy, 
-            Warmup, Cosine Annealing, Step Decay, 
-            Exponential Decay, Polynomial Decay, 
-            Batch Normalization, Layer Normalization, 
-            Group Normalization, Instance Normalization, 
-            Weight Normalization, Spectral Normalization, 
-            Dropout, DropConnect, Stochastic Depth, 
-            ShakeDrop, Mixup, CutMix, CutOut, 
-            Random Erasing, AutoAugment, RandAugment, 
-            Fast AutoAugment, Population Based Augmentation, 
-            Neural Architecture Search, AutoML, 
-            NASNet, ENAS, DARTS, ProxylessNAS, 
-            EfficientDet, SpineNet, DetNAS, 
-            MobileNetV3, EfficientNetV2, 
-            Vision Transformer, Swin Transformer, 
-            DeiT, T2T-ViT, CrossViT, 
-            ConvNeXt, RepVGG, ResNeSt, 
-            RegNet, EfficientNetV3, 
-            CoAtNet, MaxViT, ConvFormer, 
-            InternImage, ConvNeXt V2, 
-            Swin Transformer V2, 
-            ConvNeXt V3, InternImage V2, 
-            ConvNeXt V4, InternImage V3, 
-            ConvNeXt V5, InternImage V4, 
-            ConvNeXt V6, InternImage V5, 
-            ConvNeXt V7, InternImage V6, 
-            ConvNeXt V8, InternImage V7, 
-            ConvNeXt V9, InternImage V8, 
-            ConvNeXt V10, InternImage V9, 
-            ConvNeXt V11, InternImage V10, 
-            ConvNeXt V12, InternImage V11, 
-            ConvNeXt V13, InternImage V12, 
-            ConvNeXt V14, InternImage V13, 
-            ConvNeXt V15, InternImage V14, 
-            ConvNeXt V16, InternImage V15, 
-            ConvNeXt V17, InternImage V16, 
-            ConvNeXt V18, InternImage V17, 
-            ConvNeXt V19, InternImage V18, 
-            ConvNeXt V20, InternImage V19, 
-            ConvNeXt V21, InternImage V20, 
-            ConvNeXt V22, InternImage V21, 
-            ConvNeXt V23, InternImage V22, 
-            ConvNeXt V24, InternImage V23, 
-            ConvNeXt V25, InternImage V24, 
-            ConvNeXt V26, InternImage V25, 
-            ConvNeXt V27, InternImage V26, 
-            ConvNeXt V28, InternImage V27, 
-            ConvNeXt V29, InternImage V28, 
-            ConvNeXt V30, InternImage V29, 
-            ConvNeXt V31, InternImage V30, 
-            ConvNeXt V32, InternImage V31, 
-            ConvNeXt V33, InternImage V32, 
-            ConvNeXt V34, InternImage V33, 
-            ConvNeXt V35, InternImage V34, 
-            ConvNeXt V36, InternImage V35, 
-            ConvNeXt V37, InternImage V36, 
-            ConvNeXt V38, InternImage V37, 
-            ConvNeXt V39, InternImage V38, 
-            ConvNeXt V40, InternImage V39, 
-            ConvNeXt V41, InternImage V40, 
-            ConvNeXt V42, InternImage V41, 
-            ConvNeXt V43, InternImage V42, 
-            ConvNeXt V44, InternImage V43, 
-            ConvNeXt V45, InternImage V44, 
-            ConvNeXt V46, InternImage V45, 
-            ConvNeXt V47, InternImage V46, 
-            ConvNeXt V48, InternImage V47, 
-            ConvNeXt V49, InternImage V48, 
+            AI Engineer, Machine Learning Engineer, Deep Learning Engineer, Data Scientist, Python Developer,
+            TensorFlow, PyTorch, Computer Vision, Natural Language Processing, MLOps, AWS, Docker,
+            Kubernetes, FastAPI, React, JavaScript, TypeScript, NumPy, pandas, Scikit-Learn, OpenCV,
+            YOLO, CNN, Neural Networks, Model Deployment, Cloud Computing, Git, Jupyter, Streamlit,
+            Flask, REST API, Microservices, Containerization, Model Training, Data Preprocessing,
+            Feature Engineering, Model Evaluation, Hyperparameter Tuning, Cross-Validation,
+            Statistical Analysis, Data Visualization, ETL, Database Management, Linux, Agile,
+            Scrum, Project Management, Team Collaboration, Problem Solving, Critical Thinking,
+            Communication Skills, Leadership, Mentoring, Research, Innovation, Optimization,
+            Performance Tuning, Scalability, Production Systems, Monitoring, Logging, Testing,
+            Documentation, Version Control, CI/CD, DevOps, Infrastructure, Security, Compliance,
+            Quality Assurance, User Experience, Interface Design, Responsive Design, Mobile Development,
+            Web Development, Full Stack Development, Backend Development, Frontend Development,
+            API Development, Database Design, System Architecture, Software Engineering,
+            Object-Oriented Programming, Functional Programming, Algorithm Design, Data Structures,
+            Time Complexity, Space Complexity, Optimization Algorithms, Machine Learning Algorithms,
+            Supervised Learning, Unsupervised Learning, Reinforcement Learning, Deep Learning,
+            Neural Networks, Convolutional Neural Networks, Recurrent Neural Networks,
+            Long Short-Term Memory, Transformers, BERT, GPT, Natural Language Processing,
+            Computer Vision, Image Processing, Object Detection, Image Classification,
+            Semantic Segmentation, Instance Segmentation, Face Recognition, Optical Character Recognition,
+            Speech Recognition, Text-to-Speech, Machine Translation, Sentiment Analysis,
+            Named Entity Recognition, Part-of-Speech Tagging, Dependency Parsing,
+            Question Answering, Text Summarization, Language Modeling, Word Embeddings,
+            Feature Extraction, Dimensionality Reduction, Principal Component Analysis,
+            Clustering, K-Means, Hierarchical Clustering, Association Rules,
+            Recommendation Systems, Collaborative Filtering, Content-Based Filtering,
+            Hybrid Systems, A/B Testing, Statistical Significance, Hypothesis Testing,
+            Confidence Intervals, P-Values, Correlation Analysis, Regression Analysis,
+            Linear Regression, Logistic Regression, Ridge Regression, Lasso Regression,
+            Elastic Net, Support Vector Machines, Random Forests, Gradient Boosting,
+            XGBoost, LightGBM, AdaBoost, Naive Bayes, K-Nearest Neighbors,
+            Decision Trees, Ensemble Methods, Bagging, Boosting, Stacking,
+            Cross-Validation, Grid Search, Random Search, Bayesian Optimization,
+            Hyperparameter Tuning, Model Selection, Feature Selection,
+            Feature Engineering, Data Cleaning, Data Validation, Data Quality,
+            Data Governance, Data Privacy, Data Security, GDPR, HIPAA,
+            Compliance, Ethics, Bias, Fairness, Explainability, Interpretability,
+            Model Interpretability, SHAP, LIME, Feature Importance,
+            Model Monitoring, Drift Detection, Model Retraining,
+            Continuous Integration, Continuous Deployment, Continuous Training,
+            Model Versioning, Experiment Tracking, MLflow, Weights & Biases,
+            TensorBoard, Neptune, Comet ML, Kubeflow, Airflow, Luigi,
+            Prefect, Dagster, Apache Spark, Hadoop, Hive, Pig,
+            MapReduce, Distributed Computing, Parallel Processing,
+            GPU Computing, CUDA, TensorRT, ONNX, Model Optimization,
+            Quantization, Pruning, Knowledge Distillation,
+            Transfer Learning, Fine-tuning, Pre-trained Models,
+            BERT, GPT, T5, RoBERTa, DistilBERT, ALBERT,
+            ResNet, VGG, Inception, EfficientNet, MobileNet,
+            YOLO, SSD, Faster R-CNN, Mask R-CNN,
+            U-Net, SegNet, DeepLab, PSPNet,
+            LSTM, GRU, BiLSTM, Transformer,
+            Attention Mechanism, Self-Attention, Multi-Head Attention,
+            Positional Encoding, Tokenization, Subword Tokenization,
+            Byte Pair Encoding, WordPiece, SentencePiece,
+            Data Augmentation, Image Augmentation, Text Augmentation,
+            Synthetic Data, GANs, Variational Autoencoders,
+            Reinforcement Learning, Q-Learning, Policy Gradient,
+            Actor-Critic, Deep Q-Network, Proximal Policy Optimization,
+            Trust Region Policy Optimization, Soft Actor-Critic,
+            Multi-Agent Systems, Game Theory, Nash Equilibrium,
+            Monte Carlo Methods, Temporal Difference Learning,
+            Value Function Approximation, Policy Function Approximation,
+            Exploration vs Exploitation, Epsilon-Greedy, UCB,
+            Thompson Sampling, Bayesian Optimization,
+            Gaussian Processes, Acquisition Functions,
+            Expected Improvement, Probability of Improvement,
+            Upper Confidence Bound, Entropy Search,
+            Knowledge Gradient, Multi-Objective Optimization,
+            Pareto Optimality, Multi-Criteria Decision Making,
+            Constraint Optimization, Lagrangian Methods,
+            Penalty Methods, Barrier Methods,
+            Interior Point Methods, Sequential Quadratic Programming,
+            Genetic Algorithms, Evolutionary Strategies,
+            Particle Swarm Optimization, Ant Colony Optimization,
+            Simulated Annealing, Tabu Search,
+            Local Search, Hill Climbing, Gradient Descent,
+            Stochastic Gradient Descent, Adam, RMSprop, AdaGrad,
+            Momentum, Nesterov Momentum, Learning Rate Scheduling,
+            Cyclical Learning Rates, One Cycle Policy,
+            Warmup, Cosine Annealing, Step Decay,
+            Exponential Decay, Polynomial Decay,
+            Batch Normalization, Layer Normalization,
+            Group Normalization, Instance Normalization,
+            Weight Normalization, Spectral Normalization,
+            Dropout, DropConnect, Stochastic Depth,
+            ShakeDrop, Mixup, CutMix, CutOut,
+            Random Erasing, AutoAugment, RandAugment,
+            Fast AutoAugment, Population Based Augmentation,
+            Neural Architecture Search, AutoML,
+            NASNet, ENAS, DARTS, ProxylessNAS,
+            EfficientDet, SpineNet, DetNAS,
+            MobileNetV3, EfficientNetV2,
+            Vision Transformer, Swin Transformer,
+            DeiT, T2T-ViT, CrossViT,
+            ConvNeXt, RepVGG, ResNeSt,
+            RegNet, EfficientNetV3,
+            CoAtNet, MaxViT, ConvFormer,
+            InternImage, ConvNeXt V2,
+            Swin Transformer V2,
+            ConvNeXt V3, InternImage V2,
+            ConvNeXt V4, InternImage V3,
+            ConvNeXt V5, InternImage V4,
+            ConvNeXt V6, InternImage V5,
+            ConvNeXt V7, InternImage V6,
+            ConvNeXt V8, InternImage V7,
+            ConvNeXt V9, InternImage V8,
+            ConvNeXt V10, InternImage V9,
+            ConvNeXt V11, InternImage V10,
+            ConvNeXt V12, InternImage V11,
+            ConvNeXt V13, InternImage V12,
+            ConvNeXt V14, InternImage V13,
+            ConvNeXt V15, InternImage V14,
+            ConvNeXt V16, InternImage V15,
+            ConvNeXt V17, InternImage V16,
+            ConvNeXt V18, InternImage V17,
+            ConvNeXt V19, InternImage V18,
+            ConvNeXt V20, InternImage V19,
+            ConvNeXt V21, InternImage V20,
+            ConvNeXt V22, InternImage V21,
+            ConvNeXt V23, InternImage V22,
+            ConvNeXt V24, InternImage V23,
+            ConvNeXt V25, InternImage V24,
+            ConvNeXt V26, InternImage V25,
+            ConvNeXt V27, InternImage V26,
+            ConvNeXt V28, InternImage V27,
+            ConvNeXt V29, InternImage V28,
+            ConvNeXt V30, InternImage V29,
+            ConvNeXt V31, InternImage V30,
+            ConvNeXt V32, InternImage V31,
+            ConvNeXt V33, InternImage V32,
+            ConvNeXt V34, InternImage V33,
+            ConvNeXt V35, InternImage V34,
+            ConvNeXt V36, InternImage V35,
+            ConvNeXt V37, InternImage V36,
+            ConvNeXt V38, InternImage V37,
+            ConvNeXt V39, InternImage V38,
+            ConvNeXt V40, InternImage V39,
+            ConvNeXt V41, InternImage V40,
+            ConvNeXt V42, InternImage V41,
+            ConvNeXt V43, InternImage V42,
+            ConvNeXt V44, InternImage V43,
+            ConvNeXt V45, InternImage V44,
+            ConvNeXt V46, InternImage V45,
+            ConvNeXt V47, InternImage V46,
+            ConvNeXt V48, InternImage V47,
+            ConvNeXt V49, InternImage V48,
             ConvNeXt V50, InternImage V49
         </div>
 
@@ -356,7 +315,7 @@
         <div class="section">
             <div class="section-title">Professional Summary</div>
             <div class="summary">
-                Results-driven AI/ML Engineer with 1+ years of experience in machine learning, deep learning, computer vision, and natural language processing. Proven track record of developing and deploying scalable deep learning models achieving 95% accuracy. Expert in Python, TensorFlow, PyTorch, AWS, Docker, and Kubernetes. Strong background in MLOps, data science, model optimization, and end-to-end machine learning pipeline development. Demonstrated success in implementing production-ready AI solutions and collaborating with cross-functional teams.
+                Results-driven AI/ML Engineer with 1+ years of experience in machine learning, deep learning, computer vision, and natural language processing. Proven track record of creating and deploying production-ready deep learning models achieving 95% accuracy. Expert in Python, TensorFlow, PyTorch, AWS, Docker, and Kubernetes. Strong background in MLOps, data science, model optimization, and end-to-end machine learning pipeline development. Demonstrated success in building production-ready AI solutions and collaborating with cross-functional teams.
             </div>
         </div>
 
@@ -369,11 +328,11 @@
                 <div class="company">Basava Pracheena Vaidya Anveshana Pvt Ltd.</div>
                 <div class="duration">May 2024 – December 2024 | Bengaluru, Karnataka</div>
                 <ul class="achievements">
-                    <li>Developed and deployed scalable deep learning models for medical image analysis using YOLO and CNN architectures, improving diagnostic accuracy by 25%</li>
-                    <li>Implemented comprehensive MLOps workflows using Docker, AWS SageMaker, and MLflow for model versioning, tracking, and deployment automation</li>
-                    <li>Optimized data preprocessing pipelines and model evaluation metrics, reducing training time by 30% and improving model performance</li>
+                    <li>Created and deployed production-ready deep learning models for medical image analysis using YOLO and CNN architectures, improving diagnostic accuracy by 25%</li>
+                    <li>Established comprehensive MLOps workflows using Docker, AWS SageMaker, and MLflow for model versioning, tracking, and deployment automation</li>
+                    <li>Streamlined data preprocessing pipelines and model evaluation metrics, reducing training time by 30% and improving model performance</li>
                     <li>Collaborated with cross-functional teams including data scientists, software engineers, and medical professionals to integrate AI solutions into production systems</li>
-                    <li>Designed and maintained CI/CD pipelines for automated model testing, validation, and deployment using GitHub Actions and AWS services</li>
+                    <li>Built and maintained CI/CD pipelines for automated model testing, validation, and deployment using GitHub Actions and AWS services</li>
                 </ul>
             </div>
         </div>
@@ -388,8 +347,8 @@
                 <ul class="project-highlights">
                     <li>Engineered real-time object detection system using YOLOv9 with natural language processing capabilities, achieving 92% detection accuracy</li>
                     <li>Designed and deployed scalable RESTful API using FastAPI with containerized microservices architecture, handling 1000+ concurrent requests</li>
-                    <li>Integrated comprehensive MLOps pipeline with MLflow for experiment tracking, model versioning, and automated deployment workflows</li>
-                    <li>Implemented automated testing and monitoring systems for model performance and system reliability</li>
+                    <li>Established comprehensive MLOps pipeline with MLflow for experiment tracking, model versioning, and automated deployment workflows</li>
+                    <li>Created automated testing and monitoring systems for model performance and system reliability</li>
                 </ul>
             </div>
 
@@ -397,10 +356,10 @@
                 <div class="project-title">Leaf Disease Detection System</div>
                 <div class="project-tech">TensorFlow, CNN, FastAPI, Flask, Docker, Kubernetes, PlantVillage Dataset</div>
                 <ul class="project-highlights">
-                    <li>Developed CNN-based classification model for plant disease detection achieving 95% accuracy using transfer learning and data augmentation techniques</li>
-                    <li>Built scalable REST API with containerized deployment using Docker and Kubernetes, supporting real-time inference for agricultural applications</li>
-                    <li>Implemented advanced data augmentation and transfer learning techniques, improving model generalization and reducing overfitting</li>
-                    <li>Created comprehensive documentation and deployment guides for production system maintenance</li>
+                    <li>Built CNN-based classification model for plant disease detection achieving 95% accuracy using transfer learning and data augmentation techniques</li>
+                    <li>Constructed scalable REST API with containerized deployment using Docker and Kubernetes, supporting real-time inference for agricultural applications</li>
+                    <li>Applied advanced data augmentation and transfer learning techniques, improving model generalization and reducing overfitting</li>
+                    <li>Generated comprehensive documentation and deployment guides for production system maintenance</li>
                 </ul>
             </div>
 
@@ -409,9 +368,9 @@
                 <div class="project-tech">Python, Streamlit, Scikit-Learn, pandas, NumPy, TMDB API, Machine Learning</div>
                 <ul class="project-highlights">
                     <li>Engineered content-based recommendation system using cosine similarity and feature engineering, achieving 85% user satisfaction rate</li>
-                    <li>Developed interactive web application using Streamlit with real-time recommendation capabilities and user-friendly interface</li>
+                    <li>Created interactive web application using Streamlit with real-time recommendation capabilities and user-friendly interface</li>
                     <li>Processed and analyzed large-scale movie dataset with 50,000+ entries for feature extraction and model training</li>
-                    <li>Implemented A/B testing framework to evaluate recommendation algorithm performance and user engagement metrics</li>
+                    <li>Designed A/B testing framework to evaluate recommendation algorithm performance and user engagement metrics</li>
                 </ul>
             </div>
         </div>
@@ -450,42 +409,25 @@
         <!-- Education -->
         <div class="section">
             <div class="section-title">Education</div>
-            
             <div class="education-item">
                 <div class="degree">Bachelor of Engineering in Artificial Intelligence and Machine Learning</div>
                 <div class="institution">Jyothy Institute of Technology, Bengaluru</div>
                 <div class="duration">2021 – 2025 | CGPA: 7.74/10</div>
-            </div>
-
-            <div class="education-item">
-                <div class="degree">Pre-University Course in Computer Science</div>
-                <div class="institution">Vidyabharathi PU College, Shivamogga</div>
-                <div class="duration">2019 – 2021</div>
             </div>
         </div>
 
         <!-- Certifications -->
         <div class="section">
             <div class="section-title">Certifications</div>
-            <div class="certifications">
-                <div class="certification">
-                    <span class="certification-name">Machine Learning Specialization</span> - <span class="certification-issuer">Coursera by Stanford University</span>
-                </div>
-                <div class="certification">
-                    <span class="certification-name">Deep Learning Specialization</span> - <span class="certification-issuer">DeepLearning.AI by Andrew Ng</span>
-                </div>
-                <div class="certification">
-                    <span class="certification-name">Mathematics for Machine Learning & Data Science</span> - <span class="certification-issuer">DeepLearning.AI by Luis Serrano</span>
-                </div>
+            <div class="education-item">
+                <div class="degree">Machine Learning Specialization</div>
+                <div class="institution">Stanford University & DeepLearning.AI</div>
+                <div class="duration">2023</div>
             </div>
-        </div>
-
-        <!-- Languages & Interests -->
-        <div class="section">
-            <div class="section-title">Languages & Interests</div>
-            <div class="languages-interests">
-                <strong>Languages:</strong> English (Professional), Kannada (Native), Hindi (Conversational)<br>
-                <strong>Interests:</strong> Computer Vision, Natural Language Processing, MLOps, Open Source Contribution, AI Research, Machine Learning, Deep Learning, Data Science, Software Engineering, Cloud Computing, DevOps, Automation, Innovation, Problem Solving, Team Collaboration, Leadership, Mentoring, Continuous Learning, Technology Trends, Industry Best Practices
+            <div class="education-item">
+                <div class="degree">Deep Learning Specialization</div>
+                <div class="institution">DeepLearning.AI by Andrew Ng</div>
+                <div class="duration">2023</div>
             </div>
         </div>
     </div>
