@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, Phone, MapPin, Code, Brain, Database, Cloud, ExternalLink, ChevronDown, Terminal, Zap, Layers, GitBranch, Download, GraduationCap, BookOpen, Award } from 'lucide-react';
+import { Github, Linkedin, Mail, Phone, MapPin, Code, Brain, Database, Cloud, ExternalLink, ChevronDown, Terminal, Zap, Layers, GitBranch, Download, GraduationCap, BookOpen, Award, Menu, X } from 'lucide-react';
 
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState('hero');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
       setActiveSection(sectionId);
+      setIsMobileMenuOpen(false); // Close mobile menu after navigation
     }
   };
   const [isLoaded, setIsLoaded] = useState(false);
@@ -108,11 +110,13 @@ const Portfolio = () => {
       
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-gray-800">
-        <div className="max-w-7xl mx-auto px-6 py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
           <div className="flex justify-between items-center">
-            <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <div className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               Aniruddha HD
             </div>
+            
+            {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-8">
               {['About', 'Experience', 'Projects', 'Skills', 'Certifications', 'Contact'].map((item) => (
                 <button
@@ -129,75 +133,104 @@ const Portfolio = () => {
                 </button>
               ))}
             </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="md:hidden p-2 text-gray-300 hover:text-blue-400 transition-colors duration-300"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+
+          {/* Mobile Navigation Menu */}
+          <div className={`md:hidden transition-all duration-300 ease-in-out ${
+            isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+          } overflow-hidden`}>
+            <div className="py-4 space-y-4 border-t border-gray-700 mt-4">
+              {['About', 'Experience', 'Projects', 'Skills', 'Certifications', 'Contact'].map((item) => (
+                <button
+                  key={item}
+                  onClick={() => scrollToSection(item.toLowerCase())}
+                  className={`block w-full text-left px-4 py-2 rounded-lg transition-colors duration-300 ${
+                    activeSection === item.toLowerCase() 
+                      ? 'bg-blue-600/20 text-blue-400 border border-blue-600/30' 
+                      : 'text-gray-300 hover:bg-gray-800/50 hover:text-blue-400'
+                  }`}
+                >
+                  {item}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center relative">
-        <div className="text-center z-10 max-w-4xl mx-auto px-6">
+      <section className="min-h-screen flex items-center justify-center relative pt-20">
+        <div className="text-center z-10 max-w-4xl mx-auto px-4 sm:px-6">
           <div className={`transform transition-all duration-1000 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
               Aniruddha HD
             </h1>
-            <div className="text-2xl md:text-3xl text-gray-300 mb-8 h-16">
+            <div className="text-lg sm:text-2xl md:text-3xl text-gray-300 mb-8 min-h-[4rem] sm:min-h-[6rem] md:min-h-[8rem] flex items-center justify-center">
               <TypewriterEffect text="AI/ML Engineer & Deep Learning Specialist" delay={80} />
             </div>
-            <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-xl text-gray-400 mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed px-4">
               Crafting intelligent solutions with cutting-edge deep learning models and scalable MLOps pipelines
             </p>
-            <div className="flex justify-center space-x-6 mb-12">
+            <div className="flex justify-center space-x-4 sm:space-x-6 mb-8 sm:mb-12">
               <a href="mailto:aniruddhahdkedlaya@gmail.com" className="group" target="_blank" rel="noopener noreferrer">
-                <div className="p-4 border border-gray-700 rounded-full hover:border-blue-400 transition-all duration-300 group-hover:scale-110">
-                  <Mail className="w-6 h-6 group-hover:text-blue-400" />
+                <div className="p-3 sm:p-4 border border-gray-700 rounded-full hover:border-blue-400 transition-all duration-300 group-hover:scale-110">
+                  <Mail className="w-5 h-5 sm:w-6 sm:h-6 group-hover:text-blue-400" />
                 </div>
               </a>
               <a href="https://linkedin.com/in/Aniruddha-HD" className="group" target="_blank" rel="noopener noreferrer">
-                <div className="p-4 border border-gray-700 rounded-full hover:border-blue-400 transition-all duration-300 group-hover:scale-110">
-                  <Linkedin className="w-6 h-6 group-hover:text-blue-400" />
+                <div className="p-3 sm:p-4 border border-gray-700 rounded-full hover:border-blue-400 transition-all duration-300 group-hover:scale-110">
+                  <Linkedin className="w-5 h-5 sm:w-6 sm:h-6 group-hover:text-blue-400" />
                 </div>
               </a>
               <a href="https://github.com/Ani-2003-HD" className="group" target="_blank" rel="noopener noreferrer">
-                <div className="p-4 border border-gray-700 rounded-full hover:border-blue-400 transition-all duration-300 group-hover:scale-110">
-                  <Github className="w-6 h-6 group-hover:text-blue-400" />
+                <div className="p-3 sm:p-4 border border-gray-700 rounded-full hover:border-blue-400 transition-all duration-300 group-hover:scale-110">
+                  <Github className="w-5 h-5 sm:w-6 sm:h-6 group-hover:text-blue-400" />
                 </div>
               </a>
             </div>
             
             {/* Download Resume Buttons */}
-            <div className="flex justify-center space-x-4 mb-8">
+            <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-8 px-4">
               <a 
                 href="/Aniruddha-portfolio/Aniruddha_HD_Resume.pdf" 
                 download="Aniruddha_HD_Resume.pdf"
-                className="inline-flex items-center space-x-3 px-6 py-4 bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-500 hover:to-blue-500 rounded-lg border border-green-500 hover:border-green-400 transition-all duration-300 group transform hover:scale-105"
+                className="inline-flex items-center justify-center space-x-3 px-4 sm:px-6 py-3 sm:py-4 bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-500 hover:to-blue-500 rounded-lg border border-green-500 hover:border-green-400 transition-all duration-300 group transform hover:scale-105"
               >
-                <Download className="w-6 h-6 group-hover:animate-bounce" />
-                <span className="text-lg font-semibold">Download PDF</span>
+                <Download className="w-5 h-5 sm:w-6 sm:h-6 group-hover:animate-bounce" />
+                <span className="text-base sm:text-lg font-semibold">Download PDF</span>
               </a>
               <a 
                 href="/Aniruddha-portfolio/resume.html" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center space-x-3 px-6 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 rounded-lg border border-blue-500 hover:border-blue-400 transition-all duration-300 group transform hover:scale-105"
+                className="inline-flex items-center justify-center space-x-3 px-4 sm:px-6 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 rounded-lg border border-blue-500 hover:border-blue-400 transition-all duration-300 group transform hover:scale-105"
               >
-                <Download className="w-6 h-6 group-hover:animate-bounce" />
-                <span className="text-lg font-semibold">View Online</span>
+                <Download className="w-5 h-5 sm:w-6 sm:h-6 group-hover:animate-bounce" />
+                <span className="text-base sm:text-lg font-semibold">View Online</span>
               </a>
             </div>
           </div>
         </div>
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ChevronDown className="w-8 h-8 text-gray-400" />
+          <ChevronDown className="w-6 h-6 sm:w-8 sm:h-8 text-gray-400" />
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 relative">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+      <section id="about" className="py-16 sm:py-20 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-16 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
             About Me
           </h2>
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div>
               <p className="text-lg text-gray-300 leading-relaxed mb-6">
                 I'm a passionate AI/ML Engineer specializing in deep learning and MLOps, currently pursuing my Bachelor's in 
@@ -259,13 +292,13 @@ const Portfolio = () => {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-20 bg-gray-900/50">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+      <section id="experience" className="py-16 sm:py-20 bg-gray-900/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-16 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
             Experience
           </h2>
           <GlowCard className="max-w-4xl mx-auto">
-            <div className="p-8">
+            <div className="p-6 sm:p-8">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
                 <div>
                   <h3 className="text-2xl font-bold text-white mb-2">{experience.title}</h3>
@@ -290,12 +323,12 @@ const Portfolio = () => {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+      <section id="projects" className="py-16 sm:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-16 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
             Featured Projects
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {projects.map((project, index) => (
               <GlowCard key={index} className="h-full">
                 <div className="p-6 h-full flex flex-col">
@@ -364,12 +397,12 @@ const Portfolio = () => {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 bg-gray-900/50">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+      <section id="skills" className="py-16 sm:py-20 bg-gray-900/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-16 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
             Technical Arsenal
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {Object.entries(skills).map(([category, skillList], index) => (
               <GlowCard key={category}>
                 <div className="p-6">
@@ -396,42 +429,42 @@ const Portfolio = () => {
       </section>
 
       {/* Education */}
-      <section id="education" className="py-20 relative">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-white">
+      <section id="education" className="py-16 sm:py-20 relative">
+        <div className="container mx-auto px-4 sm:px-6">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-white">
             Education
           </h2>
-          <div className="grid md:grid-cols-1 gap-8 max-w-4xl mx-auto">
-            <GlowCard className="p-8">
-              <div className="flex items-start space-x-6">
-                <div className="flex-shrink-0">
-                  <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                    <GraduationCap className="w-8 h-8 text-white" />
+          <div className="grid md:grid-cols-1 gap-6 sm:gap-8 max-w-4xl mx-auto">
+            <GlowCard className="p-6 sm:p-8">
+              <div className="flex flex-col sm:flex-row sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
+                <div className="flex-shrink-0 flex justify-center sm:justify-start">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                    <GraduationCap className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                   </div>
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-white mb-2">
+                <div className="flex-1 text-center sm:text-left">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
                     Bachelor of Engineering in Artificial Intelligence and Machine Learning
                   </h3>
-                  <p className="text-xl text-blue-400 mb-2">Jyothy Institute of Technology, Bengaluru</p>
+                  <p className="text-lg sm:text-xl text-blue-400 mb-2">Jyothy Institute of Technology, Bengaluru</p>
                   <p className="text-gray-400 mb-2">2021 - 2025</p>
                   <p className="text-green-400 font-semibold">CGPA: 7.74/10</p>
                 </div>
               </div>
             </GlowCard>
             
-            <GlowCard className="p-8">
-              <div className="flex items-start space-x-6">
-                <div className="flex-shrink-0">
-                  <div className="w-16 h-16 bg-gradient-to-r from-green-600 to-blue-600 rounded-lg flex items-center justify-center">
-                    <BookOpen className="w-8 h-8 text-white" />
+            <GlowCard className="p-6 sm:p-8">
+              <div className="flex flex-col sm:flex-row sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
+                <div className="flex-shrink-0 flex justify-center sm:justify-start">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-green-600 to-blue-600 rounded-lg flex items-center justify-center">
+                    <BookOpen className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                   </div>
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-white mb-2">
+                <div className="flex-1 text-center sm:text-left">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
                     Pre-University Course in Computer Science
                   </h3>
-                  <p className="text-xl text-blue-400 mb-2">Vidyabharathi PU College, Shivamogga</p>
+                  <p className="text-lg sm:text-xl text-blue-400 mb-2">Vidyabharathi PU College, Shivamogga</p>
                   <p className="text-gray-400">2019 - 2021</p>
                 </div>
               </div>
@@ -441,9 +474,9 @@ const Portfolio = () => {
       </section>
 
       {/* Certifications */}
-      <section id="certifications" className="py-20 bg-gray-900/30">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-white">
+      <section id="certifications" className="py-16 sm:py-20 bg-gray-900/30">
+        <div className="container mx-auto px-4 sm:px-6">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-white">
             Certifications
           </h2>
           <div className="max-w-6xl mx-auto">
@@ -451,21 +484,21 @@ const Portfolio = () => {
             <div className="space-y-8">
               {/* Deep Learning Specialization */}
               <GlowCard>
-                <div className="p-8">
-                  <div className="flex items-start justify-between mb-6">
+                <div className="p-6 sm:p-8">
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-6 space-y-4 sm:space-y-0">
                     <div className="flex items-center space-x-4">
-                      <Award className="w-10 h-10 text-yellow-400" />
+                      <Award className="w-8 h-8 sm:w-10 sm:h-10 text-yellow-400" />
                       <div>
-                        <h3 className="text-2xl font-bold text-yellow-400">Deep Learning Specialization</h3>
-                        <p className="text-gray-300">DeepLearning.AI by Andrew Ng</p>
+                        <h3 className="text-xl sm:text-2xl font-bold text-yellow-400">Deep Learning Specialization</h3>
+                        <p className="text-gray-300 text-sm sm:text-base">DeepLearning.AI by Andrew Ng</p>
                       </div>
                     </div>
-                    <a href="https://coursera.org/verify/specialization/QPXD6BKQXNKP" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 px-4 py-2 bg-yellow-600/20 text-yellow-400 rounded-lg border border-yellow-600/30 hover:bg-yellow-600/30 transition-all duration-300">
+                    <a href="https://coursera.org/verify/specialization/QPXD6BKQXNKP" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center sm:justify-start space-x-2 px-4 py-2 bg-yellow-600/20 text-yellow-400 rounded-lg border border-yellow-600/30 hover:bg-yellow-600/30 transition-all duration-300 w-full sm:w-auto">
                       <span className="text-sm font-semibold">Verify Certificate</span>
                       <ExternalLink className="w-4 h-4" />
                     </a>
                   </div>
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {[
                       'Neural Networks and Deep Learning',
                       'Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization',
@@ -486,21 +519,21 @@ const Portfolio = () => {
 
               {/* Machine Learning Specialization */}
               <GlowCard>
-                <div className="p-8">
-                  <div className="flex items-start justify-between mb-6">
+                <div className="p-6 sm:p-8">
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-6 space-y-4 sm:space-y-0">
                     <div className="flex items-center space-x-4">
-                      <Award className="w-10 h-10 text-green-400" />
+                      <Award className="w-8 h-8 sm:w-10 sm:h-10 text-green-400" />
                       <div>
-                        <h3 className="text-2xl font-bold text-green-400">Machine Learning Specialization</h3>
-                        <p className="text-gray-300">Stanford University & DeepLearning.AI</p>
+                        <h3 className="text-xl sm:text-2xl font-bold text-green-400">Machine Learning Specialization</h3>
+                        <p className="text-gray-300 text-sm sm:text-base">Stanford University & DeepLearning.AI</p>
                       </div>
                     </div>
-                    <a href="https://coursera.org/verify/specialization/ZQKA433GBLPY" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 px-4 py-2 bg-green-600/20 text-green-400 rounded-lg border border-green-600/30 hover:bg-green-600/30 transition-all duration-300">
+                    <a href="https://coursera.org/verify/specialization/ZQKA433GBLPY" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center sm:justify-start space-x-2 px-4 py-2 bg-green-600/20 text-green-400 rounded-lg border border-green-600/30 hover:bg-green-600/30 transition-all duration-300 w-full sm:w-auto">
                       <span className="text-sm font-semibold">Verify Certificate</span>
                       <ExternalLink className="w-4 h-4" />
                     </a>
                   </div>
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {[
                       'Supervised Machine Learning: Regression and Classification',
                       'Advanced Learning Algorithms',
@@ -519,21 +552,21 @@ const Portfolio = () => {
 
               {/* Mathematics for Machine Learning Specialization */}
               <GlowCard>
-                <div className="p-8">
-                  <div className="flex items-start justify-between mb-6">
+                <div className="p-6 sm:p-8">
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-6 space-y-4 sm:space-y-0">
                     <div className="flex items-center space-x-4">
-                      <Award className="w-10 h-10 text-purple-400" />
+                      <Award className="w-8 h-8 sm:w-10 sm:h-10 text-purple-400" />
                       <div>
-                        <h3 className="text-2xl font-bold text-purple-400">Mathematics for Machine Learning & Data Science Specialization</h3>
-                        <p className="text-gray-300">DeepLearning.AI by Lois Serrano</p>
+                        <h3 className="text-xl sm:text-2xl font-bold text-purple-400">Mathematics for Machine Learning & Data Science Specialization</h3>
+                        <p className="text-gray-300 text-sm sm:text-base">DeepLearning.AI by Lois Serrano</p>
                       </div>
                     </div>
-                    <a href="https://coursera.org/verify/specialization/UOMEK7K6OE2T" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 px-4 py-2 bg-purple-600/20 text-purple-400 rounded-lg border border-purple-600/30 hover:bg-purple-600/30 transition-all duration-300">
+                    <a href="https://coursera.org/verify/specialization/UOMEK7K6OE2T" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center sm:justify-start space-x-2 px-4 py-2 bg-purple-600/20 text-purple-400 rounded-lg border border-purple-600/30 hover:bg-purple-600/30 transition-all duration-300 w-full sm:w-auto">
                       <span className="text-sm font-semibold">Verify Certificate</span>
                       <ExternalLink className="w-4 h-4" />
                     </a>
                   </div>
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {[
                       'Linear Algebra for Machine Learning and Data Science',
                       'Calculus for Machine Learning and Data Science',
@@ -555,15 +588,15 @@ const Portfolio = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gray-900/50">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold mb-8 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+      <section id="contact" className="py-16 sm:py-20 bg-gray-900/50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6 sm:mb-8 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
             Let's Build the Future Together
           </h2>
-          <p className="text-xl text-gray-300 mb-12">
+          <p className="text-lg sm:text-xl text-gray-300 mb-8 sm:mb-12">
             Ready to discuss your next AI project or explore collaboration opportunities?
           </p>
-          <div className="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto">
+          <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-3xl mx-auto">
             <GlowCard>
               <a href="https://mail.google.com/mail/?view=cm&fs=1&to=aniruddhahdkedlaya@gmail.com&su=AI/ML Project Discussion" target="_blank" rel="noopener noreferrer" className="block p-6 group">
                 <Mail className="w-12 h-12 text-blue-400 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
@@ -590,9 +623,9 @@ const Portfolio = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 border-t border-gray-800">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <p className="text-gray-400">
+      <footer className="py-6 sm:py-8 border-t border-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+          <p className="text-sm sm:text-base text-gray-400">
             © 2025 Aniruddha HD. Crafted with passion for AI and innovation.
           </p>
         </div>
