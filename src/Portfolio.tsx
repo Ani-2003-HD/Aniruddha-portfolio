@@ -28,11 +28,15 @@ const Portfolio = () => {
   };
 
   const projects = [
-    {
+  {
       title: 'RD Sharma Question Extraction Pipeline',
-      tech: ['Python', 'Transformers', 'PyMuPDF', 'Tesseract OCR', 'EasyOCR', 'Flask', 'NLTK', 'Regex'],
-      description: 'AI-driven pipeline that extracts mathematical questions from RD Sharma Class 12 textbook using advanced OCR, LLM processing, and LaTeX generation',
-      highlights: ['Advanced OCR with Tesseract and EasyOCR', 'LLM-powered question identification', 'Topic-specific extraction with confidence scoring', 'Professional LaTeX output generation']
+      tech: ['Python', 'Flask', 'PyMuPDF', 'Transformers (GPT-2)', 'Tesseract OCR'],
+      description: 'The RD Sharma Question Extraction Pipeline is an AI-driven pipeline that extracts mathematical questions from RD Sharma Class 12 textbook using advanced OCR, LLM processing, and LaTeX generation.',
+      highlights: ['Advanced text extraction with OCR fallback',
+      'AI-Powered Extraction: LLM-based question identification and refinement',
+      'Confidence Scoring: Intelligent quality assessment for extracted questions',
+      'Topic-Specific Extraction: Extract questions by chapter and topic',
+      'LaTeX Generation: Professional mathematical formatting output']
     },
     {
       title: 'AI-Powered Virtual Assistant for Object Detection',
