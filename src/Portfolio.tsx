@@ -29,6 +29,12 @@ const Portfolio = () => {
 
   const projects = [
     {
+      title: 'RD Sharma Question Extraction Pipeline',
+      tech: ['Python', 'Transformers', 'PyMuPDF', 'Tesseract OCR', 'EasyOCR', 'Flask', 'NLTK', 'Regex'],
+      description: 'AI-driven pipeline that extracts mathematical questions from RD Sharma Class 12 textbook using advanced OCR, LLM processing, and LaTeX generation',
+      highlights: ['Advanced OCR with Tesseract and EasyOCR', 'LLM-powered question identification', 'Topic-specific extraction with confidence scoring', 'Professional LaTeX output generation']
+    },
+    {
       title: 'AI-Powered Virtual Assistant for Object Detection',
       tech: ['Python', 'OpenCV', 'YOLOv9', 'Hugging Face', 'FastAPI', 'MLflow'],
       description: 'Combines real-time object detection with natural language explanations using LLM',
