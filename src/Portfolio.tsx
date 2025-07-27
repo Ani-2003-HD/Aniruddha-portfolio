@@ -247,7 +247,7 @@ const Portfolio = () => {
           <div className="grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div>
               <p className="text-lg text-gray-300 leading-relaxed mb-6">
-                I'm a passionate AI/ML Engineer specializing in deep learning and MLOps, currently pursuing my Bachelor's in 
+                I'm a passionate AI/ML Engineer specializing in deep learning and MLOps, having completed my Bachelor's in 
                 Artificial Intelligence and Machine Learning at Jyothy Institute of Technology, Bengaluru.
               </p>
               <p className="text-lg text-gray-300 leading-relaxed mb-6">
@@ -256,7 +256,7 @@ const Portfolio = () => {
               </p>
               <div className="flex items-center space-x-4 text-gray-400 mb-6">
                 <MapPin className="w-5 h-5" />
-                <span>Shivamogga, Karnataka</span>
+                <span>Bengaluru, Karnataka</span>
               </div>
               
               {/* Resume Download in About Section */}
