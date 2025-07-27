@@ -29,6 +29,16 @@ const Portfolio = () => {
 
   const projects = [
     {
+      title: 'AI_Financial_Advisor',
+      tech: ['Flask', 'SQLAlchemy', 'JWT', 'React', 'TypeScript', 'Tailwind CSS'],
+      description: 'AI-powered financial advisor application that provides intelligent expense categorization, spending analysis, budget recommendations, and conversational AI assistance. It features a Flask backend with SQLAlchemy for database management, JWT authentication, and RESTful API for frontend integration. The frontend is built using React with TypeScript and Tailwind CSS for styling.',
+      highlights: ['AI-Powered Expense Categorization: Automatic categorization using machine learning',
+      'Intelligent Spending Analysis: Pattern recognition and trend analysis',
+      'Smart Budget Recommendations: AI-driven budget suggestions',
+      'Conversational Finance Assistant: Natural language financial advice',
+      'Comprehensive Analytics: Monthly summaries, predictions, and insights']
+    },
+    {
       title: 'RD Sharma Question Extraction Pipelin',
       tech: ['Hugging Face', 'PyTorch', 'Pandas', 'Pillow', 'Python', 'Tesseract OCR', 'Requests', 'NumPy', 'Flask'],
       description: 'A software project implementing rd-sharma-extraction',
