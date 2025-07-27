@@ -28,19 +28,13 @@ const Portfolio = () => {
   };
 
   const projects = [
-  {
-      title: 'rd-sharma-extraction',
+    {
+      title: 'RD Sharma Question Extraction Pipelin',
       tech: ['Hugging Face', 'PyTorch', 'Pandas', 'Pillow', 'Python', 'Tesseract OCR', 'Requests', 'NumPy', 'Flask'],
       description: 'A software project implementing rd-sharma-extraction',
       highlights: ['Built rd-sharma-extraction with modern development practices',
       'Features clean, maintainable code architecture',
       'Demonstrates technical problem-solving skills']
-    },
-    {
-      title: 'RD Sharma Question Extraction Pipeline',
-      tech: ['Python', 'Transformers', 'PyMuPDF', 'Tesseract OCR', 'EasyOCR', 'Flask', 'NLTK', 'Regex'],
-      description: 'AI-driven pipeline that extracts mathematical questions from RD Sharma Class 12 textbook using advanced OCR, LLM processing, and LaTeX generation',
-      highlights: ['Advanced OCR with Tesseract and EasyOCR', 'LLM-powered question identification', 'Topic-specific extraction with confidence scoring', 'Professional LaTeX output generation']
     },
     {
       title: 'AI-Powered Virtual Assistant for Object Detection',
@@ -262,7 +256,7 @@ const Portfolio = () => {
               {/* Resume Download in About Section */}
               <div className="flex items-center space-x-4">
                                 <a
-                  href="/Aniruddha-portfolio/Aniruddha_HD_Resume.pdf"
+                  href="/Aniruddha-portfolio/Aniruddha_HD_Resume_.pdf"
                   download="Aniruddha_HD_Resume.pdf"
                   className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-500 hover:to-blue-500 rounded-lg border border-green-500 hover:border-green-400 transition-all duration-300 group transform hover:scale-105"
                 >
