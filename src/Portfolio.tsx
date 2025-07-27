@@ -28,6 +28,18 @@ const Portfolio = () => {
   };
 
   const projects = [
+  {
+    name: "rd-sharma-extraction",
+    description: "A software project implementing rd-sharma-extraction",
+    technologies: ["Python"],
+    highlights: [
+      "Built rd-sharma-extraction with modern development practices",
+      "Features clean, maintainable code architecture",
+      "Demonstrates technical problem-solving skills"
+    ],
+    github: "https://github.com/yourusername/rd-sharma-extraction",
+    demo: "#"
+  },
     {
       title: 'AI-Powered Virtual Assistant for Object Detection',
       tech: ['Python', 'OpenCV', 'YOLOv9', 'Hugging Face', 'FastAPI', 'MLflow'],
