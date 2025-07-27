@@ -28,6 +28,14 @@ const Portfolio = () => {
   };
 
   const projects = [
+  {
+      title: 'rd-sharma-extraction',
+      tech: ['Hugging Face', 'PyTorch', 'Pandas', 'Pillow', 'Python', 'Tesseract OCR', 'Requests', 'NumPy', 'Flask'],
+      description: 'A software project implementing rd-sharma-extraction',
+      highlights: ['Built rd-sharma-extraction with modern development practices',
+      'Features clean, maintainable code architecture',
+      'Demonstrates technical problem-solving skills']
+    },
     {
       title: 'RD Sharma Question Extraction Pipeline',
       tech: ['Python', 'Transformers', 'PyMuPDF', 'Tesseract OCR', 'EasyOCR', 'Flask', 'NLTK', 'Regex'],
