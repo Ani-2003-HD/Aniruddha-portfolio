@@ -29,6 +29,16 @@ const Portfolio = () => {
 
   const projects = [
     {
+      title: 'Portfolio Agent',
+      tech: ['Python', 'Ollama', 'Llama 3.1', 'GitPython', 'React', 'TypeScript', 'JSON-RPC', 'MCP'],
+      description: 'AI-powered portfolio management tool that analyzes coding projects using local AI models and automatically updates GitHub Pages portfolios and resumes. Features intelligent project analysis, ATS-optimized content generation, full Git workflow automation, and MCP server integration for AI assistants.',
+      highlights: ['AI-Powered Project Analysis: Uses Llama 3.1 to intelligently analyze code and documentation',
+      'Automated Portfolio Management: Updates GitHub Pages portfolios with smart content generation',
+      'ATS-Optimized Resume Builder: Generates professional resume bullets that pass applicant tracking systems',
+      'Complete Git Workflow: Automated backup, commit, push, and deployment with rollback capabilities',
+      'MCP Server Integration: Enables AI assistants to use portfolio management tools via JSON-RPC protocol']
+    },
+    {
       title: 'AI_Financial_Advisor',
       tech: ['Flask', 'SQLAlchemy', 'JWT', 'React', 'TypeScript', 'Tailwind CSS'],
       description: 'AI-powered financial advisor application that provides intelligent expense categorization, spending analysis, budget recommendations, and conversational AI assistance. It features a Flask backend with SQLAlchemy for database management, JWT authentication, and RESTful API for frontend integration. The frontend is built using React with TypeScript and Tailwind CSS for styling.',
