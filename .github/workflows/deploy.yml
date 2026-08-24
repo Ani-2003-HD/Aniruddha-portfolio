@@ -6,6 +6,11 @@ on:
   pull_request:
     branches: [main, master]
 
+# GITHUB_TOKEN is read-only by default. peaceiris deploys by pushing a
+# commit to the gh-pages branch, which needs write access to contents.
+permissions:
+  contents: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
