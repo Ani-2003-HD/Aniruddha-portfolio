@@ -1,26 +1,54 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
     "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
+
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"],
+  // Files left over from the pre-Obsidian build (the three.js cosmic canvas,
+  // the Create React App scaffolding). Nothing imports them, so Vite never
+  // bundles them — but `tsc -b` type-checks every file under `include`, and
+  // these reference packages that are no longer installed. Excluding them
+  // keeps the build green whether or not they have been deleted yet; run
+  // ./scripts/cleanup-legacy.sh to remove them for good, then delete this
+  // block.
+  "exclude": [
+    "src/Portfolio.tsx",
+    "src/App.test.tsx",
+    "src/index.tsx",
+    "src/react-app-env.d.ts",
+    "src/reportWebVitals.ts",
+    "src/setupTests.ts",
+    "src/components/CosmicCanvas.tsx",
+    "src/components/FloatingParticles.tsx",
+    "src/components/GlowCard.tsx",
+    "src/components/HudPanel.tsx",
+    "src/components/icons.ts",
+    "src/components/Planet.tsx",
+    "src/components/RevealSection.tsx",
+    "src/components/SectionHeading.tsx",
+    "src/components/Starfield.tsx",
+    "src/components/starfieldData.ts",
+    "src/components/TypewriterEffect.tsx",
+    "src/hooks/useScrollFractionRef.ts",
+    "src/hooks/useScrollRoute.ts",
+    "src/lib/proceduralTextures.ts",
+    "src/sections/Certifications.tsx",
+    "src/sections/Education.tsx"
+  ],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

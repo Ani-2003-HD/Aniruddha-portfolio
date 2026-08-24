@@ -1,25 +1,28 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Aniruddha HD",
+  "name": "Aniruddha HD \u2014 AI/ML Engineer",
+  "description": "Generative AI, agentic systems and MLOps.",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "src": "/Aniruddha-portfolio/favicon.ico",
+      "sizes": "16x16 32x32 48x48",
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "/Aniruddha-portfolio/icon-192.png",
+      "sizes": "192x192",
       "type": "image/png",
-      "sizes": "192x192"
+      "purpose": "any maskable"
     },
     {
-      "src": "logo512.png",
+      "src": "/Aniruddha-portfolio/icon-512.png",
+      "sizes": "512x512",
       "type": "image/png",
-      "sizes": "512x512"
+      "purpose": "any maskable"
     }
   ],
-  "start_url": ".",
+  "start_url": "/Aniruddha-portfolio/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#050506",
+  "background_color": "#050506"
 }

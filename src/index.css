@@ -2,12 +2,330 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+/* ─────────────────────────────────────────────────────────────
+   OBSIDIAN — a two-material design system.
+
+   Everything on this site is one of two materials:
+
+   · MATTE    the page ground. Flat, grain-textured, absorbs light.
+              Nothing on it casts a highlight.
+   · LACQUER  every raised surface. Piano-black: a slightly lighter
+              fill, a 1px top-edge highlight where light catches the
+              bevel, a deep ambient shadow beneath, and a specular
+              hotspot that tracks the cursor.
+
+   The contrast between the two is the entire visual identity, which is
+   why the palette carries almost no hue. Colour appears in exactly one
+   place — a cold `ice` glow behind the hero — and never as a fill.
+   ───────────────────────────────────────────────────────────── */
+
+:root {
+  --grain-opacity: 0.055;
+  --nav-h: 72px;
+}
+
+html {
+  /* Lenis owns scroll easing; the native smooth-scroll would fight it. */
+  scroll-behavior: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #000000;
+}
+
+body {
+  background-color: #050506;
+  color: #d8d8dd;
+  overscroll-behavior-y: none;
+  /* overflow-x belongs on <body>, not a nested div: the CSS root-overflow
+     propagation rule promotes it to the viewport. On a nested div the
+     browser would compute overflow-y as `auto` too, silently turning it
+     into a scroll container and breaking every position:sticky descendant. */
+  overflow-x: hidden;
+  font-feature-settings: 'ss01' 1, 'cv05' 1;
+}
+
+::selection {
+  background: rgba(159, 182, 255, 0.22);
+  color: #fff;
+}
+
+/* Keyboard focus. `:focus-visible` rather than `:focus` so the ring appears
+   for keyboard users without flashing on every mouse click. */
+:focus-visible {
+  outline: 2px solid rgba(159, 182, 255, 0.75);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* The native pointer is hidden only while the custom cursor is actually
+   mounted — Cursor.tsx adds this class after confirming a fine, hovering
+   pointer and no reduced-motion preference. Hiding it unconditionally in CSS
+   would leave touch and reduced-motion users with no pointer at all. */
+html.has-custom-cursor,
+html.has-custom-cursor a,
+html.has-custom-cursor button {
+  cursor: none;
+}
+
+/* ── Scrollbar ─────────────────────────────────────────────── */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.16) transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.14);
+  border-radius: 9999px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.26);
+}
+
+@layer components {
+  /* ── LACQUER: the polished slab ────────────────────────────
+     This is deliberately NOT the frosted-glass card the rest of the web has
+     settled on, and three specific decisions are what separate the two:
+
+     1. NO perimeter hairline. A 1px white ring around all four sides is the
+        single loudest glassmorphism tell, and it's also physically wrong —
+        light comes from somewhere. Here it comes from above, so only the top
+        edge catches it, and the bottom edge falls into shadow. That bevel
+        pair is what the eye reads as a real machined surface.
+     2. A NEAR-SQUARE radius (4px). Piano-black objects — a Steinway lid, a
+        hi-fi faceplate, a car dash — have crisp edges. A 16px radius says
+        "software card"; 4px says "milled panel".
+     3. A FIXED specular band across the top third: the reflection of an
+        off-screen strip light in a polished surface. It doesn't move, because
+        a reflection in a static object doesn't. The cursor hotspot moves
+        instead, and the contrast between the two is what sells the gloss.
+
+     Separation from the ground is by value step and shadow, never outline. */
+  .lacquer-surface {
+    position: relative;
+    isolation: isolate;
+    border-radius: 4px;
+    /* The four-stop ramp is what reads as polish rather than grey paint:
+       a bright band where the surface reflects the light above it, a fast
+       falloff into near-black through the middle, then a slight lift at the
+       very bottom — light bouncing back up off whatever the slab is sitting
+       on. A two-stop gradient can't produce that reversal, which is why flat
+       dark cards look like cardboard and this one looks wet. */
+    background-image: linear-gradient(
+      180deg,
+      #15151b 0%,
+      #0d0d11 26%,
+      #08080b 62%,
+      #101015 100%
+    );
+    box-shadow:
+      /* top bevel catches the light */
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.1),
+      /* bottom edge falls away from it */
+      inset 0 -1px 0 0 rgba(0, 0, 0, 0.85),
+      0 20px 44px -26px rgba(0, 0, 0, 1);
+    transition:
+      box-shadow 420ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .lacquer-surface:hover {
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.2),
+      inset 0 -1px 0 0 rgba(0, 0, 0, 0.85),
+      0 30px 60px -28px rgba(0, 0, 0, 1);
+  }
+
+  /* The strip-light reflection. */
+  .lacquer-surface::after {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    z-index: -1;
+    height: 34%;
+    border-radius: inherit;
+    pointer-events: none;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.058) 0%,
+      rgba(255, 255, 255, 0.014) 52%,
+      transparent 100%
+    );
+    opacity: 0.8;
+    transition: opacity 500ms ease;
+  }
+
+  .lacquer-surface:hover::after {
+    opacity: 1;
+  }
+
+  /* The cursor-tracked hotspot. --mx/--my are written straight to the node by
+     LacquerCard on pointermove, so the highlight tracks the pointer without
+     React re-rendering anything. */
+  .lacquer-surface::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 500ms ease;
+    background: radial-gradient(
+      340px circle at var(--mx, 50%) var(--my, 0%),
+      rgba(255, 255, 255, 0.075),
+      rgba(255, 255, 255, 0.02) 42%,
+      transparent 68%
+    );
+  }
+
+  .lacquer-surface:hover::before {
+    opacity: 1;
+  }
+
+  /* Matte panel — flat, part of the ground rather than raised off it. Used
+     where a slab would compete with a neighbouring slab. */
+  .matte-surface {
+    background-color: rgba(255, 255, 255, 0.016);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+    transition: background-color 380ms ease, box-shadow 380ms ease;
+  }
+  .matte-surface:hover {
+    background-color: rgba(255, 255, 255, 0.038);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.14);
+  }
+
+  /* ── Chrome type ──────────────────────────────────────────
+     Polished-metal lettering: bright at the cap height, falling to graphite
+     at the baseline, exactly as a milled surface reads under a soft box. */
+  .text-chrome {
+    background-image: linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #e6e6ea 34%,
+      #9a9aa4 72%,
+      #6d6d76 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-chrome-dim {
+    background-image: linear-gradient(180deg, #cfcfd6 0%, #8d8d97 60%, #5a5a63 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* ── Hairline rules ───────────────────────────────────────
+     Solid 1px lines look cheap on black. A gradient that fades at both ends
+     reads as light glancing off an edge. */
+  .hairline {
+    height: 1px;
+    background-image: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.13) 22%,
+      rgba(255, 255, 255, 0.13) 78%,
+      transparent
+    );
+  }
+
+  /* Flat, full-width rule for structural edges (the masthead, the footer)
+     where a fading line would look accidental rather than deliberate. */
+  .rule {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+
+  /* ── Eyebrow label ────────────────────────────────────────── */
+  .eyebrow {
+    @apply font-mono text-[10px] uppercase tracking-[0.32em] text-chrome-400;
+  }
+
+  /* ── Chips ────────────────────────────────────────────────
+     Not pills. A pill with a full outline is the same glass tell at small
+     scale, so these are flat fields with a single bright left edge — the way
+     a value reads next to its label on an instrument panel. */
+  .chip {
+    @apply inline-flex items-center rounded-chip py-[5px] pl-[9px] pr-[10px] font-mono
+           text-[10.5px] uppercase tracking-[0.12em] text-chrome-300
+           transition-colors duration-300;
+    background-color: rgba(255, 255, 255, 0.028);
+    border-left: 1px solid rgba(255, 255, 255, 0.22);
+  }
+  .chip:hover {
+    @apply text-chrome-100;
+    background-color: rgba(255, 255, 255, 0.07);
+    border-left-color: rgba(255, 255, 255, 0.65);
+  }
+
+  /* ── Sheen sweep on primary buttons ───────────────────────── */
+  .sheen-host {
+    position: relative;
+    overflow: hidden;
+  }
+  .sheen-host::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    bottom: -50%;
+    left: 0;
+    width: 42%;
+    pointer-events: none;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.42),
+      transparent
+    );
+    transform: translateX(-140%) skewX(-14deg);
+  }
+  .sheen-host:hover::after {
+    animation: sheen 1.05s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+@layer utilities {
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: -50%;
+    pointer-events: none;
+    opacity: var(--grain-opacity);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      transparent,
+      #000 9%,
+      #000 91%,
+      transparent
+    );
+    mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+  }
+
+  .balance {
+    text-wrap: balance;
+  }
+}
+
+/* ── Reduced motion ─────────────────────────────────────────
+   Kill the decorative loops outright; Framer Motion reveals are handled
+   separately in src/lib/motion.ts. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }

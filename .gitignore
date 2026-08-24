@@ -1,26 +1,47 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-# Dependencies
+# ── Dependencies ───────────────────────────────────────────────────────
 node_modules/
+.pnp
+.pnp.js
 
-# Production
+# ── Build output ───────────────────────────────────────────────────────
+# Vite writes to dist/. build/ is the old Create React App output — kept
+# here so a stale one can never be committed by accident.
+dist/
 build/
+dist-ssr/
 
-# Environment variables
+# ── Caches ─────────────────────────────────────────────────────────────
+*.tsbuildinfo
+.vite/
+.eslintcache
+coverage/
+*.lcov
+
+# ── Environment ────────────────────────────────────────────────────────
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.*
+!.env.example
+*.local
 
-# Logs
+# ── Logs ───────────────────────────────────────────────────────────────
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
-# IDE
-.vscode/
+# ── Editors ────────────────────────────────────────────────────────────
+.vscode/*
+!.vscode/extensions.json
 .idea/
+*.swp
+*.swo
 
-# OS
+# ── OS ─────────────────────────────────────────────────────────────────
+# No leading slash, so these match at any depth (src/.DS_Store included).
 .DS_Store
+._*
+.Spotlight-V100
+.Trashes
 Thumbs.db
+ehthumbs.db
