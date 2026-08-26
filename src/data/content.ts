@@ -131,6 +131,22 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: 'quantcost',
+    blurb: 'Everyone measures how fast quantized models run. Nobody measured whether they were still right.',
+    year: '2026',
+    category: 'LLM Evaluation · Benchmarking',
+    featured: true,
+    tech: ['Python', 'llama.cpp', 'Apple MLX', 'GGUF', 'Matplotlib', 'Statistical Testing'],
+    description:
+      'An open benchmark measuring output-quality degradation across quantization levels for local LLM inference on consumer Apple Silicon — the first public dataset pairing accuracy with throughput in a field that had only ever published speed. 24,600 generations across three tasks, three runtimes and four models on an 8 GB MacBook Air, all programmatically scored with no LLM-as-judge.',
+    highlights: [
+      'Found that quantization damage is not uniform: at 2-bit, JSON schema conformance holds at 100% while GSM8K arithmetic falls from 56.5% to 19.0% — models fail in the dimension users do not check',
+      'Showed Q4 significantly outperforms Q8 on Qwen2.5-1.5B in two independent runtimes (p=0.044, p=0.015), and that the effect reverses on Qwen2.5-0.5B — quantization safety does not generalise across model sizes',
+      'Built a swap-aware harness that quarantines runs contaminated by macOS paging, so throughput figures measure inference rather than the OS',
+      'Used McNemar exact tests on paired observations rather than unpaired intervals, which surfaced an effect that confidence intervals hid entirely',
+    ],
+  },
+  {
     title: 'Agentic AI News Summarizer',
     blurb: 'Three agents, one local machine, zero cloud cost.',
     year: '2026',
