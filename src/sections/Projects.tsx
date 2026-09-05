@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Plus, Github } from 'lucide-react';
+import { Plus, Github, ArrowUpRight } from 'lucide-react';
 import { Section } from '../components/Section';
 import { LacquerCard } from '../components/LacquerCard';
 import { RevealGroup, RevealItem, Reveal } from '../components/Reveal';
@@ -85,9 +85,33 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             )}
           </div>
 
+          {/* Code link sits ABOVE the expander, on its own rule: an engineer
+              scanning for source shouldn't have to open a card to find out
+              whether there is any. Rendered only when `repo` is set — see the
+              note on that field in data/content.ts. */}
+          {project.repo ? (
+            <a
+              href={project.repo}
+              target="_blank"
+              rel="noreferrer"
+              className="group/code mt-6 flex items-center justify-between border-t border-white/[0.07] pt-5"
+            >
+              <span className="flex items-center gap-2 font-mono text-[10.5px] uppercase tracking-[0.2em] text-chrome-200 transition-colors group-hover/code:text-white">
+                <Github className="h-3.5 w-3.5" strokeWidth={1.7} />
+                View code
+              </span>
+              <ArrowUpRight
+                className="h-3.5 w-3.5 text-chrome-400 transition-all duration-300 group-hover/code:-translate-y-0.5 group-hover/code:translate-x-0.5 group-hover/code:text-white"
+                strokeWidth={2}
+              />
+            </a>
+          ) : null}
+
           <button
             onClick={() => setOpen((v) => !v)}
-            className="group/btn mt-6 flex w-full items-center justify-between border-t border-white/[0.07] pt-5 text-left"
+            className={`group/btn flex w-full items-center justify-between border-t border-white/[0.07] pt-5 text-left ${
+              project.repo ? 'mt-5' : 'mt-6'
+            }`}
             aria-expanded={open}
           >
             <span className="font-mono text-[10.5px] uppercase tracking-[0.2em] text-chrome-300 transition-colors group-hover/btn:text-white">
@@ -116,7 +140,7 @@ export function Projects() {
       index="03"
       eyebrow="Selected work"
       title="What I've built end to end."
-      lede="Each one shipped as a working system — model, service and interface — not a notebook. Open any card for the architecture and the decisions behind it."
+      lede="Benchmarks with findings, and systems that run end to end — not notebooks. Open any card for the architecture and the decisions behind it; where the code is public, the repo is one click from the card."
     >
       <RevealGroup className="grid gap-4 md:gap-5 lg:grid-cols-12" gap={0.09}>
         {projects.map((project, i) => (

@@ -127,15 +127,48 @@ export interface Project {
   highlights: string[];
   /** Marks the two projects that get the wide, top-row treatment. */
   featured?: boolean;
+  /**
+   * Public repository URL. OPTIONAL AND DELIBERATELY SO: the card renders a
+   * "View code" link only when this is set, so a project without public code
+   * simply has no link rather than a broken promise.
+   *
+   * The rule is worth stating plainly, because breaking it is expensive. An
+   * engineer who reads "shipped as a working system, not a notebook", clicks
+   * through, and finds nothing does not conclude the repo is private — they
+   * conclude the project isn't real, and that doubt spreads to every other
+   * card on the page. Never point this at a repo that doesn't exist yet, and
+   * never point it at the profile root as a stand-in.
+   */
+  repo?: string;
 }
 
 export const projects: Project[] = [
+  {
+    title: 'agentfrailty',
+    blurb:
+      'Heal an agent\u2019s history and it never picks the wrong record. Corrupt it and it does so half the time \u2014 on the same prompt length.',
+    year: '2026',
+    category: 'Agent Evaluation \u00b7 Research',
+    featured: true,
+    repo: 'https://github.com/Ani-2003-HD/agentfrailty',
+    tech: ['Python', 'Qwen2.5', 'Ollama', 'Tool-Use Agents', 'Statistical Testing', 'Matplotlib'],
+    description:
+      'A controlled study of why agent success rates decay, run over 7,560 episodes and probes across three model sizes on an 8 GB MacBook Air. Sinha et al. (NeurIPS 2025) showed that agents condition on their own errors but called the controlled version on real agentic tasks \u201cintractable\u201d; with a ground-truth oracle at every step it is tractable, and this measures both the frequency and the location axes they could not.',
+    highlights: [
+      'Self-conditioning on real tool calls: with history healed, the wrong-record rate is 0.00 across all three models \u2014 0 in 200 every time; fully corrupted it is 0.24\u20130.54, with context length held to within 0.4% so length cannot explain it',
+      'The damage is a recency effect: at a 25% error rate, moving the same errors from early to late in the history is worth 27 accuracy points \u2014 old mistakes are nearly free',
+      'Difficulty is lexical. One task instance, identical graph and numbers, only six five-letter words changed across 40 draws: success spans the full 0.00\u20131.00 range, bimodal, with nothing in [0.4, 0.6) and ICC = 0.717 \u2014 vocabulary alone carries 72% of the variance',
+      'Bigger models quit earlier: on a perfectly healed history, premature submits rise 5% \u2192 27.5% \u2192 68% from 0.5B to 3B \u2014 a stopping prior, not a navigation failure',
+      'Four competing mechanisms tested and ruled out, and the recovery hypothesis rejected on evidence: only 8\u201312% of wrong targets are canonical records, so agents are not jumping back to the true path',
+    ],
+  },
   {
     title: 'quantcost',
     blurb: 'Everyone measures how fast quantized models run. Nobody measured whether they were still right.',
     year: '2026',
     category: 'LLM Evaluation · Benchmarking',
     featured: true,
+    repo: 'https://github.com/Ani-2003-HD/quantcost',
     tech: ['Python', 'llama.cpp', 'Apple MLX', 'GGUF', 'Matplotlib', 'Statistical Testing'],
     description:
       'An open benchmark measuring output-quality degradation across quantization levels for local LLM inference on consumer Apple Silicon — the first public dataset pairing accuracy with throughput in a field that had only ever published speed. 24,600 generations across three tasks, three runtimes and four models on an 8 GB MacBook Air, all programmatically scored with no LLM-as-judge.',
@@ -151,7 +184,6 @@ export const projects: Project[] = [
     blurb: 'Three agents, one local machine, zero cloud cost.',
     year: '2026',
     category: 'Agentic AI · LLM',
-    featured: true,
     tech: ['Python', 'CrewAI', 'Ollama', 'Llama 3.2', 'Serper API', 'Streamlit'],
     description:
       'A three-agent CrewAI pipeline — Researcher, Analyst, Writer — that runs entirely locally on Ollama, grounded in live web results from the Serper API. It turns any topic into a structured, source-cited brief in under three minutes without a single hosted API call.',
@@ -167,7 +199,6 @@ export const projects: Project[] = [
     blurb: 'Bayesian tuning that replaced the trial-and-error I was doing by hand.',
     year: '2026',
     category: 'MLOps · Optimisation',
-    featured: true,
     tech: ['Python', 'MLflow', 'Optuna', 'Scikit-learn'],
     description:
       'A dataset-agnostic experimentation framework built to kill the manual hyperparameter-tuning bottleneck I hit tuning object detection models during my MLOps internship — turning trial and error into systematic optimisation.',
@@ -210,33 +241,35 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: 'Leaf Disease Detection System',
-    blurb: 'CNN plant-disease classifier served behind a containerised REST API.',
-    year: '2024',
-    category: 'Computer Vision',
-    tech: ['TensorFlow', 'FastAPI', 'Flask', 'Docker'],
+    title: 'RAG HR Chatbot',
+    blurb: 'Retrieval with re-ranking and a cache, shipped as two published Docker images.',
+    year: '2025',
+    category: 'RAG \u00b7 Production',
+    repo: 'https://github.com/Ani-2003-HD/rag-hr-chatbot',
+    tech: ['Python', 'FAISS', 'BM25', 'Gemini', 'FastAPI', 'Streamlit', 'Redis', 'Docker'],
     description:
-      'A neural network for plant disease classification trained on the PlantVillage dataset and deployed as a containerised service with an interactive web front end.',
+      'A question-answering system over HR policy PDFs, built as a complete retrieval stack rather than a single embedding lookup: ingestion, chunking, dense retrieval, a re-ranking pass, a cache, an API and a UI \u2014 with both services published to Docker Hub.',
     highlights: [
-      'CNN-based multi-class classification',
-      'REST API deployment with FastAPI',
-      'Fully containerised architecture',
-      'Interactive web interface for field use',
+      'FAISS dense retrieval with a BM25 / TF-IDF re-ranking pass on top, so lexical matches the embeddings miss still surface',
+      'Redis-backed query cache that avoids paying for repeated LLM calls on the questions people actually repeat',
+      'PDF ingestion and chunking with sentence-transformer embeddings',
+      'FastAPI backend and Streamlit chat interface, both containerised and pushed to Docker Hub',
     ],
   },
   {
-    title: 'Movie Recommender System',
-    blurb: 'Content-based recommendations over the TMDB 5000 dataset.',
-    year: '2023',
-    category: 'Recommender',
-    tech: ['Python', 'Streamlit', 'Scikit-Learn', 'pandas'],
+    title: 'RD Sharma Question Extraction',
+    blurb: 'OCR into an LLM into LaTeX \u2014 with a confidence score on every question it pulls.',
+    year: '2025',
+    category: 'Document AI \u00b7 OCR',
+    repo: 'https://github.com/Ani-2003-HD/rd-sharma-question-extraction',
+    tech: ['Python', 'Tesseract OCR', 'LLM Extraction', 'LaTeX', 'Flask'],
     description:
-      'A TMDB-based recommendation engine using cosine similarity over engineered feature vectors, wrapped in an interactive Streamlit interface.',
+      'A pipeline that turns scanned Class 12 textbook pages into structured, correctly typeset mathematics. Text extraction falls back to OCR when the PDF layer is unreliable, an LLM identifies and refines question boundaries, and the output is emitted as LaTeX rather than lossy plain text.',
     highlights: [
-      'Feature-vector similarity scoring',
-      'Interactive Streamlit UI',
-      'Real-time recommendations',
-      'Built on the TMDB 5000 dataset',
+      'Confidence scoring on every extracted question, so low-quality pulls are flagged rather than silently mixed in',
+      'Topic- and chapter-level extraction instead of whole-book dumps',
+      'LaTeX generation preserving mathematical notation that plain-text OCR destroys',
+      'Deduplication pass, plus a web interface with live progress and one-click download',
     ],
   },
 ];

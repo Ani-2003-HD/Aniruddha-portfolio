@@ -37,7 +37,7 @@ export function About() {
           <RevealGroup delay={0.2} className="mt-10 grid grid-cols-2 gap-x-8 gap-y-6 sm:max-w-md">
             {[
               { label: 'Based in', value: profile.location },
-              { label: 'Focus', value: 'Deep Learning · MLOps' },
+              { label: 'Focus', value: 'GenAI · Agents · MLOps' },
               { label: 'Degree', value: 'B.E. AI & ML, 2025' },
               { label: 'Status', value: profile.availability },
             ].map((row) => (
